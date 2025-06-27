@@ -1,0 +1,58 @@
+<footer class="footer" role="contentinfo" aria-label="Footer">
+  <div class="footer__container">
+    <!-- Brand Section -->
+    <div class="footer__section footer__section--brand">
+      <span class="footer__logo" aria-label="JBC Logo">📚</span>
+      <span class="footer__brand-name">Jejo Book Collector</span>
+      <p class="footer__tagline">Your personal book search assistant.</p>
+    </div>
+    <!-- Quick Links -->
+    <nav class="footer__section footer__section--links" aria-label="Footer Quick Links">
+      <ul>
+        {% if not authed %}
+        <li><a href="#" aria-label="Home">Home</a></li>
+        <li><a href="#" aria-label="About">About</a></li>
+        {% else %}
+        <li><a  href="#" aria-label="search">Search</a></li>
+        <li><a href="#" aria-label="Collection">Collection</a></li>
+        {% endif %}
+        <li><a href="mailto:jpar1252003@gmail.com" aria-label="Contact">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Contact & Social -->
+    <div class="footer__section footer__section--contact">
+      <div class="footer__socials" aria-label="Social Links">
+        <a href="mailto:jpar1252003@gmail.com" class="footer__icon-link" aria-label="Email">
+          <!-- Envelope SVG -->
+          <svg width="24" height="24" fill="none" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+            <rect width="24" height="24" rx="6" fill="#FFD9B7" opacity="0.2"/>
+            <path d="M4 8l8 6 8-6" stroke="#7FB77E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="4" y="6" width="16" height="12" rx="2" stroke="#7FB77E" stroke-width="2"/>
+          </svg>
+        </a>
+        <a href="#" class="footer__icon-link" aria-label="Twitter">
+          <!-- Twitter SVG -->
+          <svg width="24" height="24" fill="none" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+            <rect width="24" height="24" rx="6" fill="#FFD9B7" opacity="0.2"/>
+            <path d="M20 7.5a7.5 7.5 0 01-2.18.6A3.75 3.75 0 0020 6.13a7.5 7.5 0 01-2.37.91A3.75 3.75 0 0012 10.5v.34A10.66 10.66 0 014 6.5s-4 9 5 13a11.25 11.25 0 01-7 2c9 5 20 0 20-11.5a4.1 4.1 0 00-.08-.83A7.72 7.72 0 0020 7.5z" stroke="#7FB77E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#" class="footer__icon-link" aria-label="Instagram">
+          <!-- Instagram SVG -->
+          <svg width="24" height="24" fill="none" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+            <rect width="24" height="24" rx="6" fill="#FFD9B7" opacity="0.2"/>
+            <rect x="7" y="7" width="10" height="10" rx="5" stroke="#7FB77E" stroke-width="2"/>
+            <circle cx="12" cy="12" r="3" stroke="#7FB77E" stroke-width="2"/>
+            <circle cx="16" cy="8" r="1" fill="#7FB77E"/>
+          </svg>
+        </a>
+      </div>
+      <a href="mailto:jpar1252003@gmail.com" aria-label="Email Support" class="footer__contact-link">
+        jpar1252003@gmail.com
+      </a>
+      <span class="footer__copyright">
+        &copy; 2025 JejoBookCollector
+      </span>
+    </div>
+  </div>
+</footer>

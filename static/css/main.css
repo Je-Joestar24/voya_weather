@@ -1,0 +1,67 @@
+@import './home/index.css';
+
+:root {
+  
+  /* Text Colors */
+  --text-dark: #2C3333;
+  --text-light: #F7F6DC;
+  
+  /* Shadows */
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+  --shadow-shine: rgba(255, 255, 255, 0.1);
+  
+  /* Container widths */
+  --container-xl: 1400px;
+  --container-lg: 1200px;
+  --container-md: 768px;
+  --container-sm: 576px;
+
+  /* Pastel Red-Orange Theme */
+  --theme-primary: #FF6F61; /* pastel red */
+  --theme-secondary: #FFB347; /* pastel orange */
+  --theme-accent: #FFD6C0; /* light pastel orange */
+  --theme-bg: #FFF5EC; /* very light pastel background */
+  --theme-btn: #FF8A65; /* button color */
+  --theme-btn-hover: #FF7043; /* button hover */
+  --theme-globe: #FFE0B2; /* subtle globe/map accent */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+-ms-overflow-style: none; /* IE and Edge */
+scrollbar-width: none; /* Firefox */
+}
+
+/* basic reset */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: "Poppins", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", sans-serif;
+background-color: var(--light-theme);
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+ul,
+li {
+list-style: none;
+}
+
+
+button {
+border: none;
+cursor: pointer;
+}

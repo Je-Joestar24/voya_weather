@@ -1,0 +1,129 @@
+.steps {
+  background: var(--theme-bg);
+  padding: 4rem 0 3rem 0;
+}
+
+.steps__container {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.steps__heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--theme-primary);
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+.steps__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.step-card {
+  background: var(--theme-accent);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px var(--shadow-light);
+  padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 180px;
+  max-width: 240px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+  animation: stepFloatIn 1.2s cubic-bezier(.4,2,.6,1) both;
+}
+
+.step-card:hover, .step-card:focus-within {
+  transform: translateY(-10px) scale(1.04) rotate(-1deg);
+  box-shadow: 0 8px 32px var(--shadow-dark);
+}
+
+@keyframes stepFloatIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.step-card__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--theme-primary) 60%, var(--theme-secondary) 100%);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  box-shadow: 0 2px 12px var(--shadow-shine);
+  margin-bottom: 1.1rem;
+  animation: numberFloat 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes numberFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+.step-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--theme-primary);
+  margin-bottom: 0.6rem;
+}
+
+.step-card__desc {
+  font-size: 1rem;
+  color: var(--text-dark);
+  opacity: 0.85;
+}
+
+/* Timeline connector for desktop */
+.step-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  right: -1.2rem;
+  width: 2.4rem;
+  height: 4px;
+  background: linear-gradient(90deg, var(--theme-primary) 60%, var(--theme-secondary) 100%);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+@media (max-width: 900px) {
+  .steps__list {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .step-card {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+  .step-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 64px;
+    width: 4px;
+    height: 2.4rem;
+    background: linear-gradient(180deg, var(--theme-primary) 60%, var(--theme-secondary) 100%);
+    border-radius: 2px;
+    z-index: 0;
+    transform: translateX(-50%);
+  }
+}

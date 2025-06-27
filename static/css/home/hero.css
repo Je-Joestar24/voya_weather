@@ -1,0 +1,113 @@
+.hero {
+  background: var(--theme-bg);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-xl);
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content {
+  flex: 1 1 60%;
+  z-index: 2;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--theme-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.hero__tagline {
+  font-size: 1.5rem;
+  color: var(--theme-secondary);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.hero__cta-group {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.hero__cta {
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 16px var(--shadow-light);
+  outline: none;
+}
+
+.hero__cta--primary {
+  background: var(--theme-btn);
+  color: #fff;
+  border: 2px solid var(--theme-btn);
+}
+.hero__cta--primary:hover, .hero__cta--primary:focus {
+  background: var(--theme-btn-hover);
+  color: #fff;
+  box-shadow: 0 6px 24px var(--shadow-dark);
+}
+
+.hero__cta--secondary {
+  background: transparent;
+  color: var(--theme-primary);
+  border: 2px solid var(--theme-primary);
+}
+.hero__cta--secondary:hover, .hero__cta--secondary:focus {
+  background: var(--theme-accent);
+  color: var(--theme-primary);
+  box-shadow: 0 6px 24px var(--shadow-dark);
+}
+
+.hero__bg {
+  flex: 1 1 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__bg-img {
+  width: 340px;
+  max-width: 100%;
+  opacity: 0.85;
+  filter: drop-shadow(0 8px 32px var(--theme-globe));
+  animation: globeFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes globeFloat {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-18px) scale(1.04); }
+}
+
+@media (max-width: 900px) {
+  .hero__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  .hero__bg {
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,71 @@
+<nav class="header" role="navigation" aria-label="Main Navigation">
+  <div class="header__container">
+    <a href="/" class="header__logo" aria-label="JBC Home">
+      <span aria-hidden="true" class="header__logo-icon">📚</span>
+      <span class="header__logo-text">JBC</span>
+    </a>
+    <ul class="header__links" role="menubar" aria-label="Primary">
+      {% if not authed %}
+      <li role="none">
+        <a role="menuitem" class="{% if active == 'home' %} active {% endif %}" href="#" aria-label="Home">Home</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" class="{% if active == 'about' %} active {% endif %}" href="#" aria-label="About">About</a>
+      </li>
+      {% else %}
+      <li role="none">
+        <a role="menuitem" class="{% if active == 'book_search' %} active {% endif %}" href="#" aria-label="Search Books">Search Books</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" class="{% if active == 'collection' %} active {% endif %}" href="#" aria-label="Collection">Collection</a>
+      </li>
+      {% endif %}
+    </ul>
+    <div class="header__actions">
+      {% if not authed %}
+      <a href="/login" class="header__btn header__btn--login" role="button" aria-label="Login">Login</a>
+      <a href="/signup" class="header__btn header__btn--signup" role="button" aria-label="Sign Up">Sign Up</a>
+      {% else %}
+      <a href="#" class="header__recent-btn" aria-label="recent" aria-expanded="false" aria-controls="recent">
+        <svg class="header__recent-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="12 8 12 12 14 14" />  <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" /></svg>
+        </svg>
+      </a>
+      <div class="header__profile-dropdown">
+        <button class="header__profile-btn" aria-label="Profile Menu" aria-expanded="false" aria-controls="profile-menu">
+          <svg class="header__profile-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.5899 22C20.5899 18.13 16.7399 15 11.9999 15C7.25991 15 3.40991 18.13 3.40991 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div id="profile-menu" class="header__profile-menu" role="menu" aria-label="Profile Options">
+          <a href="{#" class="header__profile-item" role="menuitem" aria-label="View Profile">
+            <svg class="header__profile-item-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Profile
+          </a>
+          <a href="#" class="header__profile-item" role="menuitem" aria-label="Logout">
+            <svg class="header__profile-item-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Logout
+          </a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div id="mobile-menu" class="header__mobile-menu" role="menu" aria-label="Mobile Navigation" hidden>
+    {% if not authed %}
+    <a href="#" role="menuitem" aria-label="Home">Home</a>
+    <a href="#" role="menuitem" aria-label="About">About</a>
+    {% else %}
+    <a href="#" role="menuitem" aria-label="Search Books">Search Books</a>
+    <a href="#" role="menuitem" aria-label="Collection">Collection</a>
+    {% endif %}
+  </div>
+</nav>

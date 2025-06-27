@@ -1,0 +1,108 @@
+.features {
+  background: var(--theme-bg);
+  padding: 4rem 0 3rem 0;
+}
+
+.features__container {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.features__heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--theme-primary);
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+.features__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: var(--theme-accent);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px var(--shadow-light);
+  padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
+  animation: floatIn 1.2s cubic-bezier(.4,2,.6,1) both;
+}
+
+.feature-card:hover, .feature-card:focus-within {
+  transform: translateY(-10px) scale(1.04) rotate(-1deg);
+  box-shadow: 0 8px 32px var(--shadow-dark);
+}
+
+@keyframes floatIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.feature-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, var(--theme-primary) 60%, var(--theme-secondary) 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px var(--shadow-shine);
+  position: relative;
+  animation: iconFloat 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes iconFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Virtual icons using ::before */
+.feature-card__icon--search::before {
+  content: "\1F50D";
+}
+.feature-card__icon--pin::before {
+  content: "\1F4CC";
+}
+.feature-card__icon--notes::before {
+  content: "\1F4D6";
+}
+.feature-card__icon--compare::before {
+  content: "\1F4CA";
+}
+
+.feature-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--theme-primary);
+  margin-bottom: 0.7rem;
+}
+
+.feature-card__desc {
+  font-size: 1rem;
+  color: var(--text-dark);
+  opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+  .features__list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .features__container {
+    padding: 0 0.5rem;
+  }
+}

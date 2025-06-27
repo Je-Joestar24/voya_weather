@@ -1,0 +1,27 @@
+{% extends 'base/main.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block header_display %}
+
+    {% include 'base/header.html' with authed=False only %}
+
+{% endblock %}
+
+{% block content %}
+    
+    {% include 'unauthed/home/hero.html' %}
+    {% include 'unauthed/home/features.html' %}
+    {% include 'unauthed/home/steps.html' %}
+    {% include 'unauthed/home/testimonials.html' %}
+    {% include 'unauthed/home/cta.html' %}
+
+{% endblock %}
+
+{% block footer_display %}
+
+    {% include 'base/footer.html' with authed=False only %}
+
+{% endblock %}
