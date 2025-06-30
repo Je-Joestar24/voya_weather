@@ -1,0 +1,91 @@
+.missionvission {
+  background: linear-gradient(120deg, var(--theme-accent) 60%, var(--theme-bg) 100%);
+  padding: 4rem 0 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.missionvission__container {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding: 0 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.missionvission__card {
+  background: #fff;
+  border-radius: 1.7rem;
+  box-shadow: 0 4px 24px var(--shadow-light);
+  flex: 1 1 0;
+  padding: 2.5rem 2rem 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+  animation: cardFloatIn 1.2s cubic-bezier(.4,2,.6,1) both;
+}
+.missionvission__card:hover, .missionvission__card:focus-within {
+  transform: translateY(-10px) scale(1.03) rotate(-1deg);
+  box-shadow: 0 8px 32px var(--shadow-dark);
+}
+@keyframes cardFloatIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.missionvission__icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  box-shadow: 0 2px 12px var(--shadow-shine);
+  position: relative;
+  background: linear-gradient(135deg, var(--theme-primary) 60%, var(--theme-secondary) 100%);
+  animation: iconPulse 2.5s ease-in-out infinite alternate;
+}
+.missionvission__icon--mission::before {
+  content: "\1F30E"; /* Globe Americas emoji */
+}
+.missionvission__icon--vision::before {
+  content: "\1F4A1"; /* Lightbulb emoji */
+}
+@keyframes iconPulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.12); opacity: 0.92; }
+}
+
+.missionvission__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--theme-primary);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.5px;
+}
+
+.missionvission__desc {
+  font-size: 1.08rem;
+  color: var(--text-dark);
+  opacity: 0.92;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .missionvission__container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 0.5rem;
+  }
+}

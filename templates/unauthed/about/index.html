@@ -1,0 +1,25 @@
+{% extends 'base/main.html' %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block header_display %}
+
+    {% include 'base/header.html' with authed=False only %}
+
+{% endblock %}
+
+{% block content %}
+    
+    {% include 'unauthed/about/intro.html' %}
+    {% include 'unauthed/about/missionvission.html' %}
+    {% include 'unauthed/about/why.html' %}
+
+{% endblock %}
+
+{% block footer_display %}
+
+    {% include 'base/footer.html' with authed=False only %}
+
+{% endblock %}

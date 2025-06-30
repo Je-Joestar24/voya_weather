@@ -1,0 +1,19 @@
+.header__logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    gap: 0.5rem;
+    color: var(--text-light);
+    transition: transform 0.2s;
+}
+
+.header__logo:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.header__logo-icon{
+  height: 3.5rem;
+  width: auto;
+  flex-shrink: 0;
+}

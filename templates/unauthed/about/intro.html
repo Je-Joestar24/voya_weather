@@ -1,0 +1,37 @@
+<section class="about-intro" role="region" aria-label="What is VoyaWeather?">
+  <div class="about-intro__container">
+    <div class="about-intro__left">
+      <h1 class="about-intro__heading">Weather-First Travel Planning</h1>
+      <p class="about-intro__desc">
+        VoyaWeather helps you explore the world smarter. Whether you're planning a trip or monitoring your favorite destinations, our app gives you instant access to real-time weather updates with the ability to save and track locations all in one place.
+      </p>
+      <div class="about-intro__btn-group">
+        <a href="/weather/search/" class="about-intro__btn about-intro__btn--search" role="button" aria-label="Search a City">Search a City</a>
+        <a href="/dashboard/" class="about-intro__btn about-intro__btn--dashboard" role="button" aria-label="View Your Dashboard">View Your Dashboard</a>
+      </div>
+    </div>
+    <div class="about-intro__right" aria-hidden="true">
+      <div class="about-intro__svg-wrap">
+        <!-- Weather SVG Icon with micro animations -->
+        <svg class="about-intro__svg" width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="about-intro__svg-sun" cx="70" cy="70" r="32" fill="url(#sunGradient)"/>
+          <g class="about-intro__svg-cloud">
+            <ellipse cx="90" cy="90" rx="28" ry="16" fill="#fff" opacity="0.9"/>
+            <ellipse cx="65" cy="95" rx="18" ry="12" fill="#fff" opacity="0.8"/>
+          </g>
+          <g class="about-intro__svg-raindrops">
+            <ellipse cx="60" cy="115" rx="3" ry="7" fill="#B3E5FC"/>
+            <ellipse cx="75" cy="120" rx="3" ry="7" fill="#B3E5FC"/>
+            <ellipse cx="90" cy="115" rx="3" ry="7" fill="#B3E5FC"/>
+          </g>
+          <defs>
+            <radialGradient id="sunGradient" cx="0" cy="0" r="1" gradientTransform="translate(70 70) scale(32)" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFB347"/>
+              <stop offset="1" stop-color="#FF6F61"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

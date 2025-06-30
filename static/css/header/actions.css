@@ -1,0 +1,48 @@
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header__btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    transition: all 0.2s ease-in-out;
+    margin-left: 0.5rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.header__btn:hover, .header__btn:focus {
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Secondary button style */
+.header__btn--login {
+    background: transparent;
+    color: var(--text-light);
+    border-color: var(--text-light);
+}
+
+.header__btn--login:hover,
+.header__btn--login:focus {
+    background: var(--text-light);
+    color: var(--theme-primary);
+}
+
+/* Primary button style */
+.header__btn--signup {
+    background: var(--theme-btn);
+    color: #fff;
+    border-color: var(--theme-btn);
+}
+
+.header__btn--signup:hover,
+.header__btn--signup:focus {
+    background: var(--theme-btn-hover);
+    border-color: var(--theme-btn-hover);
+    color: #fff;
+}

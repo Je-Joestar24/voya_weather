@@ -1,0 +1,78 @@
+/* Profile Dropdown Styles */
+.header__profile-dropdown {
+    position: relative;
+}
+
+.header__profile-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    border-radius: 50%;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.header__profile-btn:hover,
+.header__profile-btn:focus {
+    background-color: var(--shadow-shine);
+    transform: scale(1.1);
+}
+
+.header__profile-icon {
+    display: block;
+    transition: transform 0.2s;
+}
+
+.header__profile-btn:hover .header__profile-icon {
+    transform: scale(1.1);
+}
+
+.header__profile-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    min-width: 200px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    z-index: 10;
+}
+
+.header__profile-dropdown:hover .header__profile-menu,
+.header__profile-menu:focus-within {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header__profile-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.header__profile-item:hover,
+.header__profile-item:focus {
+    background-color: var(--theme-accent);
+}
+
+.header__profile-item-icon {
+    color: var(--theme-primary);
+    transition: transform 0.2s;
+}
+
+.header__profile-item:hover .header__profile-item-icon {
+    transform: scale(1.1);
+}

@@ -1,0 +1,40 @@
+.header__links {
+    display: flex;
+    gap: 2rem;
+}
+
+.header__links a {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    transition: opacity 0.2s;
+    opacity: 0.85;
+}
+
+.header__links a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: var(--theme-secondary);
+    transition: width 0.3s cubic-bezier(.4, 2, .6, 1);
+    margin-top: 2px;
+}
+
+.header__links a:hover,
+.header__links a:focus,
+.header__links a.active {
+    color: var(--text-light);
+    opacity: 1;
+}
+
+.header__links a:hover::after,
+.header__links a:focus::after,
+.header__links a.active::after {
+    width: 100%;
+}
+
+.header__recent-btn{
+    margin-top: auto;
+}
