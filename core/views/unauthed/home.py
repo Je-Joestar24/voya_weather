@@ -21,29 +21,10 @@ def home_view(request):
         status (str): Status type for message display
         message (str): Page title/header message
     """
+    # if request.user.is_authenticated:
+    #     return redirect('search_book_view') 
         
     return render(request, 'unauthed/home/index.html', {
         'status': 'info',
         'message': 'HOME PAGE'
-        })
-
-
-def about_view(request):
-    """
-    Display the landing/home page for unauthenticated users.
-    
-    Args:
-        request (HttpRequest): The HTTP request object
-        
-    Returns:
-        HttpResponse: Renders home page or redirects to search if authenticated
-        
-    Context:
-        status (str): Status type for message display
-        message (str): Page title/header message
-    """
-        
-    return render(request, 'unauthed/about/index.html', {
-        'status': 'info',
-        'message': 'ABOUT PAGE'
         })

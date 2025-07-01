@@ -1,0 +1,50 @@
+/* Branding Section */
+.login-branding {
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-branding::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            var(--shadow-shine) 30%,
+            var(--shadow-shine) 70%,
+            transparent 100%);
+    animation: shine 8s infinite linear;
+}
+
+.branding-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.brand-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.brand-title {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px var(--shadow-dark);
+}
+
+.brand-tagline {
+    color: var(--theme-accent);
+    font-size: 1.2rem;
+    opacity: 0.95;
+}

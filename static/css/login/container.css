@@ -1,0 +1,8 @@
+/* Login Page Container */
+.login-container {
+    min-height: calc(100vh);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    position: relative;
+}

@@ -1,13 +1,15 @@
 <nav class="header" role="navigation" aria-label="Main Navigation">
   <div class="header__container">
-    <a href="/" class="header__logo" aria-label="Voya Weather Home">
+    <a href="{% url 'home_view' %}" class="header__logo" aria-label="Voya Weather Home">
       <img src="/static/img/globe.png" aria-hidden="true" class="header__logo-icon">
       <span class="header__logo-text">VoyaWeather</span>
     </a>
     <ul class="header__links" role="menubar" aria-label="Primary">
       {% if not authed %}
-        {% include "components/header/menuitem.html" with slug="home" label="Home" href="#" active=active %}
-        {% include "components/header/menuitem.html" with slug="about" label="About" href="#" active=active %}
+        {% url 'home_view' as home_url %}
+        {% url 'about_view' as about_url %}
+        {% include "components/header/menuitem.html" with slug="home" label="Home" href=home_url active=active %}
+        {% include "components/header/menuitem.html" with slug="about" label="About" href=about_url active=active %}
       {% else %}
         {% include "components/header/menuitem.html" with slug="book_search" label="Search Books" href="#" active=active %}
         {% include "components/header/menuitem.html" with slug="collection" label="Collection" href="#" active=active %}
@@ -15,8 +17,8 @@
     </ul>
     <div class="header__actions">
       {% if not authed %}
-        <a href="/login" class="header__btn header__btn--login" role="button" aria-label="Login">Login</a>
-        <a href="/signup" class="header__btn header__btn--signup" role="button" aria-label="Sign Up">Sign Up</a>
+        <a href="{% url 'login_view' %}" class="header__btn header__btn--login" role="button" aria-label="Login">Login</a>
+        <a href="{% url 'signup_view' %}" class="header__btn header__btn--signup" role="button" aria-label="Sign Up">Sign Up</a>
       {% else %}
       <a href="#" class="header__recent-btn" aria-label="recent" aria-expanded="false" aria-controls="recent">
         <svg class="header__recent-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
