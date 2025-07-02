@@ -1,0 +1,52 @@
+/* Responsive Design */
+@media (max-width: 968px) {
+    .signup-container {
+        grid-template-columns: 1fr;
+    }
+
+    .signup-branding {
+        padding: 3rem 2rem;
+    }
+
+    .brand-icon {
+        font-size: 4rem;
+    }
+
+    .brand-title {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .signup-branding {
+        display: none;
+    }
+
+    .brand-icon {
+        font-size: 3rem;
+    }
+
+    .brand-title {
+        font-size: 1.8rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .signup-button {
+        padding: 0.8rem;
+    }
+
+    .checkbox-label {
+        font-size: 0.8rem;
+    }
+}

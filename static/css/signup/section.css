@@ -1,0 +1,26 @@
+/* Signup Form Section */
+.signup-form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--theme-bg);
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px var(--shadow-light);
+    opacity: 0;
+    animation: fadeInRight 0.8s ease 0.3s forwards;
+}
+
+.form-title {
+    color: var(--theme-primary);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}

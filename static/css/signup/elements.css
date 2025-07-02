@@ -1,0 +1,46 @@
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    color: var(--theme-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    font-size: 1.2rem;
+    color: var(--theme-primary);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 3rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: var(--theme-accent);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--theme-primary);
+    background-color: #fff;
+}
+
+.form-input:focus+.input-icon {
+    opacity: 1;
+}

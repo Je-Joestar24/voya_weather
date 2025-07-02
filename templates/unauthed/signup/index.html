@@ -6,6 +6,103 @@
 
 {% block content %}
     
-    
+<main class="signup-container" role="main">
+    <!-- Branding Section -->
+    <a href="{% url 'home_view' %}" class="auth-home">HOME</a>
+    <section class="signup-branding" role="region" aria-label="Application branding">
+        <div class="branding-content">
+            <img src="/static/img/globe.png" class="brand-icon" role="img" alt="VoyaWeather globe icon">
+            <h1 class="brand-title">VoyaWeather</h1>
+            <p class="brand-tagline">Create your weather-first travel account</p>
+        </div>
+    </section>
+
+    <!-- Signup Form Section -->
+    <section class="signup-form-section" role="region" aria-labelledby="signup-title">
+        <div class="form-container">
+            <h2 id="signup-title" class="form-title">Create Your VoyaWeather Account</h2>
+
+            {% if error %}
+            <div class="error-message" role="alert" aria-live="polite">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <form class="signup-form" method="POST" action="#" role="form">
+                {% csrf_token %}
+
+                <!-- Full Name Field -->
+                <div class="form-group">
+                    <label for="fullname" class="form-label">Full Name</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="fullname" name="fullname" class="form-input" required
+                            aria-required="true" placeholder="Enter your full name">
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="email" name="email" class="form-input" required aria-required="true"
+                            placeholder="Enter your email address">
+                    </div>
+                </div>
+
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🆔</span>
+                        <input type="text" id="username" name="username" class="form-input" required
+                            aria-required="true" placeholder="Choose a username">
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" name="password" class="form-input" required
+                            aria-required="true" placeholder="Create a password">
+                    </div>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔐</span>
+                        <input type="password" id="confirm_password" name="confirm_password" class="form-input" required
+                            aria-required="true" placeholder="Confirm your password">
+                    </div>
+                </div>
+
+                <!-- Terms Agreement -->
+                <div class="form-group terms-group">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" required aria-required="true">
+                        <span class="checkbox-label">I agree to the Terms of Service and Privacy Policy</span>
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="signup-button" aria-label="Create your VoyaWeather account">
+                        Create Account
+                    </button>
+                </div>
+
+                <div class="form-links">
+                    <a href="{% url 'login_view' %}" class="login-link" role="button">
+                        Already have an account? Login
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
 
 {% endblock %}

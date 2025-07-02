@@ -1,0 +1,8 @@
+/* Signup Page Container */
+.signup-container {
+    min-height: calc(100vh);
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}

@@ -3,6 +3,7 @@
 @import './header/index.css';
 @import './footer/index.css';
 @import './login/index.css';
+@import './signup/index.css';
 
 :root {
   
