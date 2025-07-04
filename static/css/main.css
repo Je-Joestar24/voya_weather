@@ -4,6 +4,7 @@
 @import './footer/index.css';
 @import './login/index.css';
 @import './signup/index.css';
+@import './searchplaces/index.css';
 
 :root {
   

@@ -10,11 +10,12 @@
     <nav class="footer__section footer__section--links" aria-label="Footer Quick Links">
       <ul>
         {% if not authed %}
-        <li><a href="#" aria-label="Home">Home</a></li>
-        <li><a href="#" aria-label="About">About</a></li>
+        <li><a href="{% url 'home_view' %}" aria-label="Home">Home</a></li>
+        <li><a href="{% url 'about_view' %}" aria-label="About">About</a></li>
         {% else %}
-        <li><a  href="#" aria-label="search">Search</a></li>
-        <li><a href="#" aria-label="Collection">Collection</a></li>
+        <li><a href="{% url 'dashboard_view' %}" aria-label="search">Dashboard</a></li>
+        <li><a href="{% url 'search_places_view' %}" aria-label="search">Search Places</a></li>
+        <li><a href="{% url 'saved_places_view' %}" aria-label="search">Saved Places</a></li>
         {% endif %}
         <li><a href="mailto:jpar1252003@gmail.com" aria-label="Contact">Contact</a></li>
       </ul>

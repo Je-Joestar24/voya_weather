@@ -5,14 +5,19 @@
       <span class="header__logo-text">VoyaWeather</span>
     </a>
     <ul class="header__links" role="menubar" aria-label="Primary">
+      {% url 'home_view' as home_url %}
+      {% url 'about_view' as about_url %}
+      {% url 'dashboard_view' as dashboard_url %}
+      {% url 'recents_view' as recents_url %}
+      {% url 'search_places_view' as search_places_url %}
+      {% url 'saved_places_view' as saved_places_url %}
       {% if not authed %}
-        {% url 'home_view' as home_url %}
-        {% url 'about_view' as about_url %}
         {% include "components/header/menuitem.html" with slug="home" label="Home" href=home_url active=active %}
         {% include "components/header/menuitem.html" with slug="about" label="About" href=about_url active=active %}
       {% else %}
-        {% include "components/header/menuitem.html" with slug="book_search" label="Search Books" href="#" active=active %}
-        {% include "components/header/menuitem.html" with slug="collection" label="Collection" href="#" active=active %}
+        {% include "components/header/menuitem.html" with slug="dashboard" label="Dashboard" href=dashboard_url active=active %}
+        {% include "components/header/menuitem.html" with slug="search" label="Search Places" href=search_places_url active=active %}
+        {% include "components/header/menuitem.html" with slug="saved" label="Saved Places" href=saved_places_url active=active %}
       {% endif %}
     </ul>
     <div class="header__actions">
@@ -20,7 +25,7 @@
         <a href="{% url 'login_view' %}" class="header__btn header__btn--login" role="button" aria-label="Login">Login</a>
         <a href="{% url 'signup_view' %}" class="header__btn header__btn--signup" role="button" aria-label="Sign Up">Sign Up</a>
       {% else %}
-      <a href="#" class="header__recent-btn" aria-label="recent" aria-expanded="false" aria-controls="recent">
+      <a href="{{ recents_url }}" class="header__recent-btn" aria-label="recent" aria-expanded="false" aria-controls="recent">
         <svg class="header__recent-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="12 8 12 12 14 14" />  <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" /></svg>
         </svg>

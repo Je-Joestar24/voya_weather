@@ -1,0 +1,22 @@
+{% extends 'base/main.html' %}
+
+{% block title %}
+    Saved Places
+{% endblock %}
+
+{% block header_display %}
+
+    {% include 'base/header.html' with authed=True active='saved' %}
+
+{% endblock %}
+
+{% block content %}
+    
+
+{% endblock %}
+
+{% block footer_display %}
+
+    {% include 'base/footer.html' with authed=True only %}
+
+{% endblock %}

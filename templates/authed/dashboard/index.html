@@ -1,0 +1,22 @@
+{% extends 'base/main.html' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block header_display %}
+
+    {% include 'base/header.html' with authed=True active='dashboard' %}
+
+{% endblock %}
+
+{% block content %}
+    
+
+{% endblock %}
+
+{% block footer_display %}
+
+    {% include 'base/footer.html' with authed=True only %}
+
+{% endblock %}
