@@ -1,0 +1,110 @@
+.searchplaces__results {
+    display: flex;
+    justify-content: center;
+}
+
+.weather-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.2rem;
+    width: 100%;
+    max-width: 1100px;
+    padding: 0;
+    margin: 0;
+}
+
+.weather-card {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 24px var(--shadow-light);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    position: relative;
+    animation: fadeInUp 0.8s cubic-bezier(.4, 2, .6, 1) both;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.weather-card:hover,
+.weather-card:focus-within {
+    box-shadow: 0 8px 32px var(--shadow-dark);
+    transform: translateY(-8px) scale(1.03);
+}
+
+.weather-card__icon {
+    font-size: 2.7rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 8px var(--theme-globe));
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+.weather-card__info {
+    flex: 1 1 0;
+}
+
+.weather-card__city {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--theme-primary);
+    margin-bottom: 0.3rem;
+}
+
+.weather-card__meta {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 1.08rem;
+    color: var(--theme-secondary);
+}
+
+.weather-card__temp {
+    font-weight: 700;
+}
+
+.weather-card__cond {
+    font-style: italic;
+}
+
+.weather-card__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.weather-card__btn {
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+    background: var(--theme-accent);
+    color: var(--theme-primary);
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.weather-card__btn--save:hover,
+.weather-card__btn--save:focus {
+    background: var(--theme-btn);
+    color: #fff;
+}
+
+.weather-card__btn--details:hover,
+.weather-card__btn--details:focus {
+    background: var(--theme-secondary);
+    color: #fff;
+}
+
+.weather-card--hot {
+    border-left: 8px solid var(--theme-btn);
+}
+
+.weather-card--normal {
+    border-left: 8px solid var(--theme-secondary);
+}
+
+.weather-card--cold {
+    border-left: 8px solid var(--theme-primary);
+}

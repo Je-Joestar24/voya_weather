@@ -1,0 +1,38 @@
+.weather-filters {
+    display: flex;
+    gap: 1.2rem;
+    background: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 2px 12px var(--shadow-light);
+    padding: 0.5rem 1.5rem;
+}
+
+.weather-filter {
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--theme-primary);
+    border-radius: 2rem;
+    padding: 0.5rem 1.3rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.weather-filter--hot:hover,
+.weather-filter--hot:focus {
+    background: var(--theme-btn);
+    color: #fff;
+}
+
+.weather-filter--normal:hover,
+.weather-filter--normal:focus {
+    background: var(--theme-secondary);
+    color: #fff;
+}
+
+.weather-filter--cold:hover,
+.weather-filter--cold:focus {
+    background: var(--theme-primary);
+    color: #fff;
+}

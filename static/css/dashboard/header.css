@@ -1,0 +1,27 @@
+/* Welcome Header */
+.dashboard__welcome {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s cubic-bezier(.4, 2, .6, 1) both;
+}
+
+.welcome-greeting {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--theme-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.welcome-date {
+    font-size: 1.1rem;
+    color: var(--theme-secondary);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.welcome-intro {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+}

@@ -1,0 +1,44 @@
+/* CTA Buttons */
+.dashboard__cta {
+    padding: 0 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: var(--container-md);
+    margin: 0 auto;
+}
+
+.cta-btn {
+    background: var(--theme-btn);
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 16px var(--shadow-light);
+    animation: fadeInUp 0.8s cubic-bezier(.4, 2, .6, 1) both;
+    text-decoration: none;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+    background: var(--theme-btn-hover);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 32px var(--shadow-dark);
+    color: #fff;
+    text-decoration: none;
+}
+
+.cta-btn__icon {
+    font-size: 1.2rem;
+}

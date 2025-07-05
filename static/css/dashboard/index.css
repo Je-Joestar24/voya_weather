@@ -1,0 +1,12 @@
+@import './cta.css';
+@import './header.css';
+@import './highlights.css';
+@import './recent.css';
+@import './responsive.css';
+@import './summary.css';
+
+.dashboard {
+    background: var(--theme-bg);
+    min-height: 100vh;
+    padding: 2rem 0 3rem 0;
+}

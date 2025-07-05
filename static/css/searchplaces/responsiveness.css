@@ -1,0 +1,36 @@
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@media (max-width: 900px) {
+
+    .searchplaces__searchbar,
+    .searchplaces__filters {
+        padding: 0 1rem;
+    }
+
+    .weather-results {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+}

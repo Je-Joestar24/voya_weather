@@ -5,6 +5,7 @@
 @import './login/index.css';
 @import './signup/index.css';
 @import './searchplaces/index.css';
+@import './dashboard/index.css';
 
 :root {
   
