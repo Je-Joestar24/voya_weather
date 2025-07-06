@@ -5,18 +5,23 @@
 {% endblock %}
 
 {% block header_display %}
-
     {% include 'base/header.html' with authed=True active='saved' %}
-
 {% endblock %}
 
 {% block content %}
-    
+<main class="savedplaces" role="main">
 
+  {% include 'authed/savedplaces/header.html'%}
+
+  {% include 'authed/savedplaces/searchfilter.html'%}
+
+  {% include 'authed/savedplaces/saved.html'%}
+
+  {% include 'authed/savedplaces/empty.html'%}
+  
+</main>
 {% endblock %}
 
 {% block footer_display %}
-
     {% include 'base/footer.html' with authed=True only %}
-
 {% endblock %}

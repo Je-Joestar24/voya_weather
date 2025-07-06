@@ -1,0 +1,123 @@
+/* Saved Places Grid */
+.savedplaces__content {
+    padding: 0 2rem;
+}
+
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: 0;
+}
+
+.place-card {
+    background: #fff;
+    border-radius: 1.5rem;
+    padding: 1.8rem;
+    box-shadow: 0 4px 24px var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 0.8s cubic-bezier(.4, 2, .6, 1) both;
+}
+
+.place-card:hover,
+.place-card:focus-within {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 32px var(--shadow-dark);
+}
+
+.place-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.place-card__info {
+    flex: 1;
+}
+
+.place-card__city {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--theme-primary);
+    margin-bottom: 0.3rem;
+}
+
+.place-card__weather {
+    font-size: 1.1rem;
+    color: var(--theme-secondary);
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.place-card__saved {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    opacity: 0.7;
+}
+
+.place-card__favorite {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+    opacity: 0.3;
+}
+
+.place-card__favorite:hover,
+.place-card__favorite:focus {
+    transform: scale(1.2);
+}
+
+.place-card__favorite--active {
+    opacity: 1;
+    filter: drop-shadow(0 2px 8px var(--theme-secondary));
+}
+
+.place-card__actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.place-card__btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--theme-primary);
+    background: var(--theme-accent);
+}
+
+.place-card__btn:hover,
+.place-card__btn:focus {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px var(--shadow-dark);
+}
+
+.place-card__btn--view:hover,
+.place-card__btn--view:focus {
+    background: var(--theme-btn);
+    color: #fff;
+}
+
+.place-card__btn--delete:hover,
+.place-card__btn--delete:focus {
+    background: var(--theme-primary);
+    color: #fff;
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}

@@ -1,0 +1,54 @@
+<section class="searchplaces__results" aria-label="Search Results">
+  <ul class="weather-results" role="list">
+    <li class="weather-card weather-card--hot" role="listitem">
+      <div class="weather-card__icon" aria-hidden="true">🌞</div>
+      <div class="weather-card__info">
+        <h3 class="weather-card__city">Cairo</h3>
+        <div class="weather-card__meta">
+          <span class="weather-card__temp">38°C</span>
+          <span class="weather-card__cond">Sunny</span>
+        </div>
+      </div>
+      <div class="weather-card__actions">
+        <button
+          class="weather-card__btn weather-card__btn--save"
+          aria-label="Save to My Places"
+        >
+          Save
+        </button>
+        <button
+          class="weather-card__btn weather-card__btn--details"
+          aria-label="View Details"
+        >
+          View Details
+        </button>
+      </div>
+    </li>
+    <li class="weather-card weather-card--normal" role="listitem">
+      <div class="weather-card__icon" aria-hidden="true">☁️</div>
+      <div class="weather-card__info">
+        <h3 class="weather-card__city">London</h3>
+        <div class="weather-card__meta">
+          <span class="weather-card__temp">19°C</span>
+          <span class="weather-card__cond">Cloudy</span>
+        </div>
+      </div>
+      <div class="weather-card__actions">
+        <button
+          class="weather-card__btn weather-card__btn--save"
+          aria-label="Save to My Places"
+        >
+          Save
+        </button>
+        <button
+          class="weather-card__btn weather-card__btn--details"
+          aria-label="View Details"
+        >
+          View Details
+        </button>
+      </div>
+    </li>
+
+    {% include 'authed/searchplaces/card.html'%}
+  </ul>
+</section>

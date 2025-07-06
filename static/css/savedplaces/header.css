@@ -1,0 +1,20 @@
+/* Page Header */
+.savedplaces__header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s cubic-bezier(.4, 2, .6, 1) both;
+}
+
+.header-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--theme-primary);
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.5px;
+}
+
+.header-subtitle {
+    font-size: 1.2rem;
+    color: var(--theme-secondary);
+    font-weight: 500;
+}

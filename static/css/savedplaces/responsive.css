@@ -1,0 +1,67 @@
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+
+    .savedplaces__controls,
+    .savedplaces__content {
+        padding: 0 1rem;
+    }
+
+    .places-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .place-card__actions {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .header-title {
+        font-size: 2rem;
+    }
+}

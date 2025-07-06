@@ -1,0 +1,11 @@
+@import './empty.css';
+@import './header.css';
+@import './responsive.css';
+@import './savedcard.css';
+@import './searchfilter.css';
+
+.savedplaces {
+  background: var(--theme-bg);
+  min-height: 100vh;
+  padding: 2rem 0 3rem 0;
+}

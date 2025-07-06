@@ -1,0 +1,106 @@
+<!-- Saved Locations Grid -->
+<section
+  class="savedplaces__content"
+  role="region"
+  aria-label="Saved Places List"
+>
+  <ul class="places-grid" role="list">
+    <li class="place-card" role="listitem">
+      <div class="place-card__header">
+        <div class="place-card__info">
+          <h3 class="place-card__city">Tokyo</h3>
+          <p class="place-card__weather">26°C, Cloudy</p>
+          <span class="place-card__saved">Saved 2 days ago</span>
+        </div>
+        <button
+          class="place-card__favorite place-card__favorite--active"
+          aria-label="Remove from favorites"
+        >
+          ⭐
+        </button>
+      </div>
+      <div class="place-card__actions">
+        <a
+          href="/weather/tokyo/"
+          class="place-card__btn place-card__btn--view"
+          aria-label="View Tokyo weather details"
+        >
+          <span class="btn-icon" aria-hidden="true">🔍</span>
+          View Details
+        </a>
+        <button
+          class="place-card__btn place-card__btn--delete"
+          aria-label="Delete Tokyo from saved places"
+        >
+          <span class="btn-icon" aria-hidden="true">🗑️</span>
+          Delete
+        </button>
+      </div>
+    </li>
+
+    <li class="place-card" role="listitem">
+      <div class="place-card__header">
+        <div class="place-card__info">
+          <h3 class="place-card__city">Paris</h3>
+          <p class="place-card__weather">18°C, Partly Cloudy</p>
+          <span class="place-card__saved">Saved 1 week ago</span>
+        </div>
+        <button class="place-card__favorite" aria-label="Add to favorites">
+          ⭐
+        </button>
+      </div>
+      <div class="place-card__actions">
+        <a
+          href="/weather/paris/"
+          class="place-card__btn place-card__btn--view"
+          aria-label="View Paris weather details"
+        >
+          <span class="btn-icon" aria-hidden="true">🔍</span>
+          View Details
+        </a>
+        <button
+          class="place-card__btn place-card__btn--delete"
+          aria-label="Delete Paris from saved places"
+        >
+          <span class="btn-icon" aria-hidden="true">🗑️</span>
+          Delete
+        </button>
+      </div>
+    </li>
+
+    <li class="place-card" role="listitem">
+      <div class="place-card__header">
+        <div class="place-card__info">
+          <h3 class="place-card__city">New York</h3>
+          <p class="place-card__weather">22°C, Sunny</p>
+          <span class="place-card__saved">Saved 3 days ago</span>
+        </div>
+        <button
+          class="place-card__favorite place-card__favorite--active"
+          aria-label="Remove from favorites"
+        >
+          ⭐
+        </button>
+      </div>
+      <div class="place-card__actions">
+        <a
+          href="/weather/new-york/"
+          class="place-card__btn place-card__btn--view"
+          aria-label="View New York weather details"
+        >
+          <span class="btn-icon" aria-hidden="true">🔍</span>
+          View Details
+        </a>
+        <button
+          class="place-card__btn place-card__btn--delete"
+          aria-label="Delete New York from saved places"
+        >
+          <span class="btn-icon" aria-hidden="true">🗑️</span>
+          Delete
+        </button>
+      </div>
+    </li>
+    
+    {% include 'authed/savedplaces/card.html' %}
+  </ul>
+</section>

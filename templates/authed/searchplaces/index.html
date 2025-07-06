@@ -1,83 +1,19 @@
-{% extends 'base/main.html' %}
+{% extends 'base/main.html' %} 
 
-{% block title %}
-    Search Places
-{% endblock %}
+{% block title %} Search Places {% endblock %} 
 
-{% block header_display %}
+{% block header_display %} 
 
-    {% include 'base/header.html' with authed=True active='search' %}
+  {% include 'base/header.html' with authed=True active='search' %} 
 
-{% endblock %}
+{% endblock %} {% block content %}
 
-{% block content %}
 <main class="searchplaces" role="main">
-  <section class="searchplaces__searchbar" role="search" aria-label="City Weather Search">
-    <form class="searchbar-form" method="GET" action="#" autocomplete="off">
-      <input type="text" class="searchbar-input" name="city" placeholder="Search for a city..." aria-label="City Name" required>
-      <button type="submit" class="searchbar-btn" aria-label="Search">Search</button>
-    </form>
-  </section>
 
-  <section class="searchplaces__filters" aria-label="Filter by Weather Type">
-    <ul class="weather-filters" role="list">
-      <li><button class="weather-filter weather-filter--hot" aria-label="Hot">🌞 Hot</button></li>
-      <li><button class="weather-filter weather-filter--normal" aria-label="Normal">☁️ Normal</button></li>
-      <li><button class="weather-filter weather-filter--cold" aria-label="Cold">❄️ Cold</button></li>
-    </ul>
-  </section>
+    {% include 'authed/searchplaces/search.html'%}
+    {% include 'authed/searchplaces/filter.html'%}
+    {% include 'authed/searchplaces/cards.html'%}
 
-  <section class="searchplaces__results" aria-label="Search Results">
-    <ul class="weather-results" role="list">
-      <li class="weather-card weather-card--hot" role="listitem">
-        <div class="weather-card__icon" aria-hidden="true">🌞</div>
-        <div class="weather-card__info">
-          <h3 class="weather-card__city">Cairo</h3>
-          <div class="weather-card__meta">
-            <span class="weather-card__temp">38°C</span>
-            <span class="weather-card__cond">Sunny</span>
-          </div>
-        </div>
-        <div class="weather-card__actions">
-          <button class="weather-card__btn weather-card__btn--save" aria-label="Save to My Places">Save</button>
-          <button class="weather-card__btn weather-card__btn--details" aria-label="View Details">View Details</button>
-        </div>
-      </li>
-      <li class="weather-card weather-card--normal" role="listitem">
-        <div class="weather-card__icon" aria-hidden="true">☁️</div>
-        <div class="weather-card__info">
-          <h3 class="weather-card__city">London</h3>
-          <div class="weather-card__meta">
-            <span class="weather-card__temp">19°C</span>
-            <span class="weather-card__cond">Cloudy</span>
-          </div>
-        </div>
-        <div class="weather-card__actions">
-          <button class="weather-card__btn weather-card__btn--save" aria-label="Save to My Places">Save</button>
-          <button class="weather-card__btn weather-card__btn--details" aria-label="View Details">View Details</button>
-        </div>
-      </li>
-      <li class="weather-card weather-card--cold" role="listitem">
-        <div class="weather-card__icon" aria-hidden="true">❄️</div>
-        <div class="weather-card__info">
-          <h3 class="weather-card__city">Helsinki</h3>
-          <div class="weather-card__meta">
-            <span class="weather-card__temp">-4°C</span>
-            <span class="weather-card__cond">Snowy</span>
-          </div>
-        </div>
-        <div class="weather-card__actions">
-          <button class="weather-card__btn weather-card__btn--save" aria-label="Save to My Places">Save</button>
-          <button class="weather-card__btn weather-card__btn--details" aria-label="View Details">View Details</button>
-        </div>
-      </li>
-    </ul>
-  </section>
 </main>
-{% endblock %}
 
-{% block footer_display %}
-
-    {% include 'base/footer.html' with authed=True only %}
-
-{% endblock %}
+{% endblock %} {% block footer_display %} {% include 'base/footer.html' with authed=True only %} {% endblock %}
