@@ -1,6 +1,7 @@
 .searchplaces__results {
     display: flex;
     justify-content: center;
+    padding-bottom: 2.5em;
 }
 
 .weather-results {

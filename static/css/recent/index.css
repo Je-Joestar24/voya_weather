@@ -1,0 +1,12 @@
+@import 'cards.css';
+@import 'empty.css';
+@import 'header.css';
+@import 'responsive.css';
+@import 'search.css';
+
+.recentplaces {
+  background: var(--theme-bg);
+  min-height: 100vh;
+  padding: 2rem 0 3rem 0;
+}
+

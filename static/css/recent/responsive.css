@@ -1,0 +1,148 @@
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+
+    .recentplaces__header,
+    .recentplaces__search,
+    .recentplaces__content,
+    .recentplaces__pagination {
+        padding: 0 1rem;
+    }
+
+    .recent-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .recent-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .recent-item__btn {
+        align-self: stretch;
+        justify-content: center;
+    }
+
+    .header-title {
+        font-size: 2rem;
+    }
+
+    .pagination__list {
+        gap: 0.3rem;
+    }
+
+    .pagination__link {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .pagination__link--prev,
+    .pagination__link--next {
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .recentplaces {
+        padding: 1rem 0 2rem 0;
+    }
+
+    .header-title {
+        font-size: 1.8rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    .recent-item {
+        padding: 1.5rem;
+    }
+
+    .recent-item__city {
+        font-size: 1.2rem;
+    }
+
+    .recent-item__weather {
+        font-size: 1rem;
+    }
+
+    .pagination__list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .empty-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .empty-title {
+        font-size: 1.6rem;
+    }
+
+    .empty-message {
+        font-size: 1rem;
+    }
+}

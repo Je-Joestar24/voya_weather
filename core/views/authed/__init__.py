@@ -16,3 +16,5 @@ from .dashboard import *
 from .recent import *
 from .saved import *
 from .search import *
+from .profile import *
+from .favorites import *

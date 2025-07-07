@@ -1,6 +1,7 @@
 /* Saved Places Grid */
 .savedplaces__content {
     padding: 0 2rem;
+    padding-bottom: 2.5em;
 }
 
 .places-grid {

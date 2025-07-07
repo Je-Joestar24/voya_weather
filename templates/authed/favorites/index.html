@@ -1,0 +1,23 @@
+{% extends 'base/main.html' %}
+
+{% block title %}
+    Favorites
+{% endblock %}
+
+{% block header_display %}
+
+    {% include 'base/header.html' with authed=True active='favorites' %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+{% endblock %}
+
+{% block footer_display %}
+
+    {% include 'base/footer.html' with authed=True only %}
+
+{% endblock %}

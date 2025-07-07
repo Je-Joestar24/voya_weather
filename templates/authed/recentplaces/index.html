@@ -11,8 +11,19 @@
 {% endblock %}
 
 {% block content %}
-    
+    <main class="recentplaces" role="main">
 
+        {% include 'authed/recentplaces/header.html'%}
+
+        {% include 'authed/recentplaces/search.html'%}
+
+        {% include 'authed/recentplaces/cards.html'%}
+
+        {% include 'components/authed/pagination.html'%}
+        
+        {% include 'authed/recentplaces/empty.html'%}
+
+    </main>
 {% endblock %}
 
 {% block footer_display %}
