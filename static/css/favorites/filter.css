@@ -1,0 +1,38 @@
+/* Filter & Sort Section */
+.favorites__filters {
+    margin-bottom: 2.5rem;
+    padding: 0 2rem;
+}
+
+.filter-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #fff;
+    color: var(--theme-primary);
+    border: 2px solid var(--theme-accent);
+    border-radius: 2rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+    background: var(--theme-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px var(--shadow-dark);
+}
+
+.filter-btn--active {
+    background: var(--theme-btn);
+    color: #fff;
+    border-color: var(--theme-btn);
+}

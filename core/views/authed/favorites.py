@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def favorites_view(request):
+def favorite_places_view(request):
 
     return render(request, 'authed/favorites/index.html', {
         'status': 'info',

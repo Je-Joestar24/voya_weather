@@ -8,6 +8,7 @@
 @import './dashboard/index.css';
 @import './savedplaces/index.css';
 @import './recent/index.css';
+@import './favorites/index.css';
 @import './component/paginations.css';
 
 :root {

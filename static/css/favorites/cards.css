@@ -1,0 +1,122 @@
+/* Favorites Grid */
+.favorites__content {
+    padding: 0 2rem;
+    padding-bottom: 2.5em;
+}
+
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: 0;
+}
+
+.favorite-card {
+    background: #fff;
+    border-radius: 1.5rem;
+    padding: 1.8rem;
+    box-shadow: 0 4px 24px var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 0.8s cubic-bezier(.4, 2, .6, 1) both;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.favorite-card:hover,
+.favorite-card:focus-within {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 32px var(--shadow-dark);
+}
+
+.favorite-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.favorite-card__city {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--theme-primary);
+    margin-bottom: 0.1rem;
+}
+
+.favorite-card__icon {
+    font-size: 1.5rem;
+    color: var(--theme-secondary);
+    opacity: 0.5;
+    transition: color 0.3s, opacity 0.3s, transform 0.3s;
+    filter: drop-shadow(0 2px 8px var(--theme-secondary));
+}
+
+.favorite-card__icon--active {
+    color: var(--theme-btn);
+    opacity: 1;
+    transform: scale(1.2) rotate(-8deg);
+}
+
+.favorite-card__weather {
+    font-size: 1.1rem;
+    color: var(--theme-secondary);
+    font-weight: 600;
+}
+
+.favorite-card__meta {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    opacity: 0.7;
+}
+
+.favorite-card__actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.favorite-card__btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--theme-primary);
+    background: var(--theme-accent);
+}
+
+.favorite-card__btn:hover,
+.favorite-card__btn:focus {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px var(--shadow-dark);
+}
+
+.favorite-card__btn--view:hover,
+.favorite-card__btn--view:focus {
+    background: var(--theme-btn);
+    color: #fff;
+}
+
+.favorite-card__btn--remove:hover,
+.favorite-card__btn--remove:focus {
+    background: var(--theme-primary);
+    color: #fff;
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.favorite-card__btn:hover .btn-icon {
+    transform: scale(1.2);
+}

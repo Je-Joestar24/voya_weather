@@ -1,0 +1,131 @@
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+
+    .favorites__header,
+    .favorites__search,
+    .favorites__filters,
+    .favorites__content {
+        padding: 0 1rem;
+    }
+
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .favorite-card__actions {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .header-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .favorites {
+        padding: 1rem 0 2rem 0;
+    }
+
+    .header-title {
+        font-size: 1.8rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    .favorite-card {
+        padding: 1.5rem;
+    }
+
+    .favorite-card__city {
+        font-size: 1.2rem;
+    }
+
+    .favorite-card__weather {
+        font-size: 1rem;
+    }
+
+    .empty-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .empty-title {
+        font-size: 1.6rem;
+    }
+
+    .empty-message {
+        font-size: 1rem;
+    }
+}

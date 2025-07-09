@@ -5,19 +5,27 @@
 {% endblock %}
 
 {% block header_display %}
-
     {% include 'base/header.html' with authed=True active='favorites' %}
-
 {% endblock %}
 
 {% block content %}
+<main class="favorites" role="main">
 
+  {% include 'authed/favorites/header.html'%}
 
+  {% include 'authed/favorites/search.html'%}
+  
+  {% include 'authed/favorites/filter.html'%}
+  
+  {% include 'authed/favorites/cards.html'%}
 
+  {% include 'components/authed/pagination.html'%}
+
+  {% include 'authed/favorites/empty.html'%}
+
+</main>
 {% endblock %}
 
 {% block footer_display %}
-
     {% include 'base/footer.html' with authed=True only %}
-
 {% endblock %}

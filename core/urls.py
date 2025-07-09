@@ -12,4 +12,6 @@ urlpatterns = [
     path('recents/', views.recents_view, name='recents_view'),
     path('saved/places/', views.saved_places_view, name='saved_places_view'),
     path('search/places/', views.search_places_view, name='search_places_view'),
+    path('favorite/places/', views.favorite_places_view, name='favorite_places_view'),
+    path('profile/', views.profile_view, name='profile_view'),
 ]
