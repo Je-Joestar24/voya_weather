@@ -1,0 +1,44 @@
+/* Profile Header */
+.profile-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-avatar::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            var(--shadow-shine) 30%,
+            var(--shadow-shine) 70%,
+            transparent 100%);
+    animation: shine 8s infinite linear;
+}
+
+.avatar-icon {
+    width: 60px;
+    height: 60px;
+    fill: var(--theme-primary);
+    animation: float 6s ease-in-out infinite;
+}
+
+.profile-title {
+    color: var(--theme-primary);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}

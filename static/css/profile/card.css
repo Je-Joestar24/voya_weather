@@ -1,0 +1,11 @@
+/* Profile Card */
+.profile-card {
+    width: 100%;
+    max-width: 600px;
+    background: var(--theme-bg);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px var(--shadow-light);
+    padding: 2.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}

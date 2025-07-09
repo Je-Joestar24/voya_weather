@@ -9,6 +9,7 @@
 @import './savedplaces/index.css';
 @import './recent/index.css';
 @import './favorites/index.css';
+@import './profile/index.css';
 @import './component/paginations.css';
 
 :root {

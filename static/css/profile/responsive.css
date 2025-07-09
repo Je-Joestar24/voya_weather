@@ -1,0 +1,53 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 1.5rem;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .avatar-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .profile-title {
+        font-size: 1.8rem;
+    }
+
+    .info-value {
+        font-size: 0.9rem;
+    }
+
+    .btn-edit {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 1rem;
+    }
+
+    .profile-card {
+        padding: 1.2rem;
+    }
+
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .avatar-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile-title {
+        font-size: 1.5rem;
+    }
+}

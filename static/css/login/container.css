@@ -5,4 +5,5 @@
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
     position: relative;
+    background: var(--theme-bg);
 }

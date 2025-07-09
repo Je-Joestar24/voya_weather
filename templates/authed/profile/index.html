@@ -12,7 +12,15 @@
 
 {% block content %}
     
+<main class="profile-container" role="main" aria-label="User Profile">
+    <div class="profile-card">
 
+        {% include 'authed/profile/header.html'%}
+        
+        {% include 'authed/profile/form.html'%}
+
+    </div>
+</main>
 {% endblock %}
 
 {% block footer_display %}

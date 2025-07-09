@@ -1,0 +1,55 @@
+<form
+  method="POST"
+  class="profile-info"
+  role="form"
+  aria-label="Profile Edit Form"
+>
+  {% csrf_token %}
+  <div class="info-group">
+    <label for="fullname" class="info-label">Full Name</label>
+    <input
+      type="text"
+      id="fullname"
+      name="fullname"
+      value="{{ fullname }}"
+      class="info-value"
+      aria-label="User's full name"
+      required
+    />
+  </div>
+
+  <div class="info-group">
+    <label for="email" class="info-label">Email Address</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      value="{{ email }}"
+      class="info-value"
+      aria-label="User's email address"
+      required
+    />
+  </div>
+
+  <div class="info-group">
+    <label for="username" class="info-label">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      value="{{ username }}"
+      class="info-value"
+      aria-label="User's username"
+      required
+    />
+  </div>
+
+  <div class="profile-actions">
+    <button type="submit" class="btn-edit" aria-label="Save Profile">
+      <svg class="edit-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+      </svg>
+      Save Profile
+    </button>
+  </div>
+</form>

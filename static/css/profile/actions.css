@@ -1,0 +1,87 @@
+/* Profile Actions */
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-edit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary));
+    color: var(--text-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+.edit-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.btn-edit:hover .edit-icon {
+    transform: rotate(15deg);
+}
+
+/* Form Styles */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-label {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.info-value {
+    padding: 0.8rem;
+    border: 2px solid var(--theme-accent);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: var(--theme-accent);
+    transition: all 0.3s ease;
+}
+
+.info-value:focus {
+    outline: none;
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 0 3px var(--shadow-light);
+}
+
+.info-value:hover {
+    border-color: var(--theme-secondary);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .profile-info {
+        padding: 1rem;
+    }
+    
+    .info-value {
+        padding: 0.6rem;
+    }
+}
