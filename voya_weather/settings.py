@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'voya_weather.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'voyaweather',
+        'USER': 'voyaweather',
+        'PASSWORD': 'Voya@09',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -132,3 +136,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # For development/review purposes
 OPENWEATHER_API_KEY = '89731787200788088b0eb723c5e89c0a'
+
+# settings.py
+AUTH_USER_MODEL = "core.User"
