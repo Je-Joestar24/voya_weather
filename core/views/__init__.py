@@ -14,3 +14,4 @@ a clear organization of the application's view logic.
 
 from .unauthed import *
 from .authed import *
+from .auths import *

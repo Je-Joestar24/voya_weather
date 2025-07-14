@@ -14,4 +14,8 @@ urlpatterns = [
     path('search/places/', views.search_places_view, name='search_places_view'),
     path('favorite/places/', views.favorite_places_view, name='favorite_places_view'),
     path('profile/', views.profile_view, name='profile_view'),
+    # AUTHS
+    path('auth/signup/', views.signup_process, name='signup'),
+    path('auth/login/', views.login_process, name='login'),
+    path('auth/logout/', views.logout_process, name='logout'),
 ]
