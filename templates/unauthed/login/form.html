@@ -1,0 +1,60 @@
+<!-- Login Form Section -->
+<section class="login-form-section" role="region" aria-labelledby="login-title">
+  <div class="form-container">
+    <h2 id="login-title" class="form-title">Login to VoyaWeather</h2>
+    {% if messages %}
+    <div class="error-message" role="alert">
+      {% for message in messages %} {{ message }} {% endfor %}
+    </div>
+    {% endif %}
+    <form class="login-form" method="POST" action="{% url 'login' %}" role="form">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username" class="form-label">Username or Email</label>
+        <div class="input-wrapper">
+          <span class="input-icon">👤</span>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-input"
+            required
+            aria-required="true"
+            placeholder="Enter your username or email"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-wrapper">
+          <span class="input-icon">🔒</span>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-input"
+            required
+            aria-required="true"
+            placeholder="Enter your password"
+          />
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button
+          type="submit"
+          class="login-button"
+          aria-label="Login to your VoyaWeather account"
+        >
+          Login
+        </button>
+      </div>
+      <div class="form-links">
+        <a href="{% url 'signup_view' %}" class="signup-link" role="button">
+          Don't have an account? Sign up
+        </a>
+      </div>
+    </form>
+  </div>
+</section>

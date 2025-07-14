@@ -43,13 +43,13 @@ class LoginProcessTests(TestCase):
 
     def test_valid_login_with_email_redirects(self):
         resp = self.client.post(self.login_url, {
-            "username": "test@gmail.com",   # using email instead
+            "username": "test@gmail.com",  
             "password": "test"
         })
         self.assertRedirects(resp, self.dashboard_url)
 
     def test_login_redirects_to_next_url(self):
-        next_url = reverse("profile_view")  # replace with actual protected route
+        next_url = reverse("profile_view")  
         resp = self.client.post(f"{self.login_url}?next={next_url}", {
             "username": "test2",
             "password": "test"

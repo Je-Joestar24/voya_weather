@@ -6,8 +6,8 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class SignUpProcessTests(TestCase):
-    signup_url = reverse("signup")               # your URL name for signup view
-    dashboard_url = reverse("dashboard_view")    # new redirect target
+    signup_url = reverse("signup")               
+    dashboard_url = reverse("dashboard_view")    
 
     def setUp(self):
         self.payload = {
