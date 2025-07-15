@@ -21,8 +21,8 @@ def home_view(request):
         status (str): Status type for message display
         message (str): Page title/header message
     """
-    # if request.user.is_authenticated:
-    #     return redirect('search_book_view') 
+    if request.user.is_authenticated:
+        return redirect('dashboard_view') 
         
     return render(request, 'unauthed/home/index.html', {
         'status': 'info',

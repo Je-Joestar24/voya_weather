@@ -22,7 +22,7 @@ def login_view(request):
         message (str): Page title/header message
     """
     if request.user.is_authenticated:
-        return redirect('search_book_view') 
+        return redirect('dashboard_view') 
 
     return render(request, 'unauthed/login/index.html', {
         'status': 'info',
