@@ -1,18 +1,19 @@
-<!-- Search Bar -->
-<section
-  class="recentplaces__search"
-  role="region"
-  aria-label="Search Controls"
->
+<section class="recentplaces__search" role="region" aria-label="Search Controls">
   <div class="search-container">
-    <div class="search-wrapper">
-      <input
-        type="text"
-        class="search-input"
-        placeholder="Search by city name..."
-        aria-label="Search by city name"
-      />
-      <span class="search-icon" aria-hidden="true">🔍</span>
-    </div>
+    <form method="get" action="">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          name="q"
+          class="search-input"
+          placeholder="Search by city name..."
+          aria-label="Search by city name"
+          value="{{ search_query|default:'' }}"
+        />
+        <button type="submit" class="search-icon" aria-label="Search">
+          🔍
+        </button>
+      </div>
+    </form>
   </div>
 </section>

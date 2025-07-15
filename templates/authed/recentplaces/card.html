@@ -1,0 +1,15 @@
+<li class="recent-item" role="listitem">
+    <div class="recent-item__info">
+        <h3 class="recent-item__city">{{ place.city }}</h3>
+        <p class="recent-item__weather">{{ place.condition }}, {{ place.temp }}°C</p>
+        <span class="recent-item__date">Viewed on {{ place.viewed_at|date:"F j, Y" }}</span>
+    </div>
+    <a
+        href="{% url 'place_details' place.id %}"
+        class="recent-item__btn"
+        aria-label="View {{ place.city }} weather details"
+    >
+        <span class="btn-icon" aria-hidden="true">🔍</span>
+        View Details
+    </a>
+</li>

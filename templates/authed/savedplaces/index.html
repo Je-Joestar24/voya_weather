@@ -13,13 +13,16 @@
 
   {% include 'authed/savedplaces/header.html'%}
 
-  {% include 'authed/savedplaces/searchfilter.html'%}
+  {% include 'authed/savedplaces/search.html'%}
 
-  {% include 'authed/savedplaces/saved.html'%}
+  {% if places %}
+      {% include "authed/savedplaces/saved.html" %}
+  {% else %}
+      {% include "authed/savedplaces/empty.html" %}
+  {% endif %}
 
   {% include 'components/authed/pagination.html'%}
   
-  {% include 'authed/savedplaces/empty.html'%}
   
 </main>
 {% endblock %}

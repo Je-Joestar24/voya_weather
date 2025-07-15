@@ -1,26 +1,27 @@
 <li class="place-card" role="listitem">
   <div class="place-card__header">
     <div class="place-card__info">
-      <h3 class="place-card__city">London</h3>
-      <p class="place-card__weather">15°C, Rainy</p>
-      <span class="place-card__saved">Saved 5 days ago</span>
+      <h3 class="place-card__city">{{ place.city }}</h3>
+      <p class="place-card__weather">{{ place.temp }}°C, {{ place.condition }}</p>
+      <span class="place-card__saved">Saved {{ place.saved_at|timesince }} ago</span>
     </div>
     <button class="place-card__favorite" aria-label="Add to favorites">
-      ⭐
+      {% if place.is_favorite %}⭐{% else %}☆{% endif %}
     </button>
   </div>
   <div class="place-card__actions">
     <a
-      href="/weather/london/"
+      href="{% url 'place_details' place.id %}"
       class="place-card__btn place-card__btn--view"
-      aria-label="View London weather details"
+      aria-label="View {{ place.city }} weather details"
     >
       <span class="btn-icon" aria-hidden="true">🔍</span>
       View Details
     </a>
     <button
       class="place-card__btn place-card__btn--delete"
-      aria-label="Delete London from saved places"
+      aria-label="Delete {{ place.city }} from saved places"
+      data-city-id="{{ place.id }}"
     >
       <span class="btn-icon" aria-hidden="true">🗑️</span>
       Delete
