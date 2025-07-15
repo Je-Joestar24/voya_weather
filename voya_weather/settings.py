@@ -136,6 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # For development/review purposes
 OPENWEATHER_API_KEY = '89731787200788088b0eb723c5e89c0a'
+WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
 # settings.py
 AUTH_USER_MODEL = "core.User"

@@ -1,0 +1,47 @@
+{% extends 'base/main.html' %}
+
+{% block title %}View Details{% endblock %}
+
+{% block header_display %}
+  {% include 'base/header.html' with authed=True active='search' %}
+{% endblock %}
+
+{% block content %}
+<main class="details-container" role="main" aria-label="Weather Details">
+  <section class="details-card" aria-labelledby="details-city">
+    <div class="details-header">
+      <div class="details-icon" aria-hidden="true">
+        <!-- Weather emoji/icon, e.g. -->
+        <span>{{ place.emoji|default:"🌍" }}</span>
+      </div>
+      <div class="details-meta">
+        <h1 id="details-city" class="details-city">{{ place.city|default:"City Name" }}</h1>
+        <p class="details-country">{{ place.country|default:"Country" }}</p>
+        <div class="details-temp">
+          <span class="details-temp-value">{{ place.temp|default:"--" }}°C</span>
+          <span class="details-condition">{{ place.condition|default:"Condition" }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="details-info">
+      <ul class="details-list" role="list">
+        <li><strong>Latitude:</strong> {{ place.lat|default:"--" }}</li>
+        <li><strong>Longitude:</strong> {{ place.lon|default:"--" }}</li>
+        <li><strong>Humidity:</strong> {{ place.humidity|default:"--" }}%</li>
+        <li><strong>Wind Speed:</strong> {{ place.wind_speed|default:"--" }} m/s</li>
+        <li><strong>Pressure:</strong> {{ place.pressure|default:"--" }} hPa</li>
+        <li><strong>Feels Like:</strong> {{ place.feels_like|default:"--" }}°C</li>
+      </ul>
+    </div>
+    <div class="details-description" aria-label="Additional Description">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas iaculis vel leo posuere varius. 
+      </p>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block footer_display %}
+  {% include 'base/footer.html' with authed=True only %}
+{% endblock %}

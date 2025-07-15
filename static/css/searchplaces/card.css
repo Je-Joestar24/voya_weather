@@ -86,6 +86,7 @@
     box-shadow: 0 2px 8px var(--shadow-light);
 }
 
+.weather-card__btn--save.saved,
 .weather-card__btn--save:hover,
 .weather-card__btn--save:focus {
     background: var(--theme-btn);

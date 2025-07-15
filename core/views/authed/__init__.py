@@ -18,3 +18,4 @@ from .saved import *
 from .search import *
 from .profile import *
 from .favorites import *
+from .details import *

@@ -13,6 +13,8 @@ urlpatterns = [
     path('saved/places/', views.saved_places_view, name='saved_places_view'),
     path('search/places/', views.search_places_view, name='search_places_view'),
     path('favorite/places/', views.favorite_places_view, name='favorite_places_view'),
+    path('search/places/save/<int:city_id>/', views.toggle_save_place, name='toggle_save_place'),
+    path('search/places/view/<int:city_id>/', views.place_details_view, name='place_details'),
     path('profile/', views.profile_view, name='profile_view'),
     # AUTHS
     path('auth/signup/', views.signup_process, name='signup'),

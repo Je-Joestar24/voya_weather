@@ -1,24 +1,27 @@
-<li class="weather-card weather-card--cold" role="listitem">
-  <div class="weather-card__icon" aria-hidden="true">❄️</div>
+<li class="weather-card {% if place.temp <= 5 %}weather-card--cold{% else %}weather-card--warm{% endif %}" role="listitem">
+  <div class="weather-card__icon" aria-hidden="true">{{ place.emoji }}</div>
   <div class="weather-card__info">
-    <h3 class="weather-card__city">Helsinki</h3>
+    <h3 class="weather-card__city">{{ place.city }}</h3>
     <div class="weather-card__meta">
-      <span class="weather-card__temp">-4°C</span>
-      <span class="weather-card__cond">Snowy</span>
+      <span class="weather-card__temp">{{ place.temp }}°C</span>
+      <span class="weather-card__cond">{{ place.condition }}</span>
     </div>
   </div>
   <div class="weather-card__actions">
-    <button
-      class="weather-card__btn weather-card__btn--save"
+    <a
+      href="{% url 'toggle_save_place' place.id %}"
+      class="weather-card__btn weather-card__btn--save {% if place.is_saved %} saved {% endif %}"
       aria-label="Save to My Places"
+      disable
     >
-      Save
-    </button>
-    <button
+      {% if place.is_saved %} Saved {% else %} Save {% endif %} 
+    </a>
+    <a
+      href="{% url 'place_details' place.id %}"
       class="weather-card__btn weather-card__btn--details"
       aria-label="View Details"
     >
       View Details
-    </button>
+    </a>
   </div>
 </li>
