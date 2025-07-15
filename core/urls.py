@@ -1,6 +1,7 @@
 
 from django.urls import path
 from . import views
+from core.views.authed.saved import toggle_favorite_place
 
 urlpatterns = [
     # VIEWS
@@ -20,4 +21,5 @@ urlpatterns = [
     path('auth/signup/', views.signup_process, name='signup'),
     path('auth/login/', views.login_process, name='login'),
     path('auth/logout/', views.logout_process, name='logout'),
+    path('weather/saved/favorite/<int:city_id>/', toggle_favorite_place, name='toggle_favorite_place'),
 ]

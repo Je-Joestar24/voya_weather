@@ -15,7 +15,7 @@
 
   {% include 'authed/savedplaces/search.html'%}
 
-  {% if places %}
+  {% if places and places|length > 1 %}
       {% include "authed/savedplaces/saved.html" %}
   {% else %}
       {% include "authed/savedplaces/empty.html" %}

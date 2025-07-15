@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from core.models.saved import SavedPlace
 from core.models.favorites import FavoritePlace
 from core.models.city import City
@@ -38,6 +38,7 @@ def saved_places_view(request):
             temp = '--'
             condition = 'Unknown'
             emoji = '🌍'
+        is_favorite = FavoritePlace.objects.filter(user=user, city=city).exists()
         places.append({
             'id': city.id,
             'city': city.name,
@@ -45,7 +46,7 @@ def saved_places_view(request):
             'condition': condition,
             'emoji': emoji,
             'is_saved': True,
-            'is_favorite': FavoritePlace.objects.filter(user=user, city=city).exists(),
+            'is_favorite': is_favorite,
             'saved_at': saved.timestamp,
         })
 
@@ -61,3 +62,14 @@ def saved_places_view(request):
         'has_places': bool(places),
     }
     return render(request, 'authed/savedplaces/index.html', context)
+
+@login_required
+def toggle_favorite_place(request, city_id):
+    user = request.user
+    city = get_object_or_404(City, id=city_id)
+    favorite, created = FavoritePlace.objects.get_or_create(user=user, city=city)
+    if not created:
+        # Already a favorite, so remove
+        favorite.delete()
+    # Redirect back to saved places
+    return redirect('saved_places_view')

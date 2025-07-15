@@ -6,13 +6,16 @@
 >
   <div class="controls-container">
     <div class="search-wrapper">
+    <form method="get" action="{% url 'saved_places_view' %}">
       <input
         type="text"
+        name="q"
         class="search-input"
         placeholder="Search saved places..."
         aria-label="Search saved places"
       />
-      <span class="search-icon" aria-hidden="true">🔍</span>
+      <button type="submit" class="search-icon" aria-hidden="true">🔍</button>
+    </form>
     </div>
   </div>
 </section>

@@ -5,9 +5,11 @@
       <p class="place-card__weather">{{ place.temp }}°C, {{ place.condition }}</p>
       <span class="place-card__saved">Saved {{ place.saved_at|timesince }} ago</span>
     </div>
-    <button class="place-card__favorite" aria-label="Add to favorites">
-      {% if place.is_favorite %}⭐{% else %}☆{% endif %}
-    </button>
+    <a href="{% url 'toggle_favorite_place' place.id %}"
+      class="place-card__favorite"
+      aria-label="{% if place.is_favorite %}Remove from favorites{% else %}Add to favorites{% endif %}">
+        {% if place.is_favorite %}⭐{% else %}☆{% endif %}
+    </a>
   </div>
   <div class="place-card__actions">
     <a
