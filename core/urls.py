@@ -21,5 +21,7 @@ urlpatterns = [
     path('auth/signup/', views.signup_process, name='signup'),
     path('auth/login/', views.login_process, name='login'),
     path('auth/logout/', views.logout_process, name='logout'),
-    path('weather/saved/favorite/<int:city_id>/', toggle_favorite_place, name='toggle_favorite_place'),
+    path('weather/saved/favorite/<int:city_id>/', views.toggle_favorite_place, name='toggle_favorite_place'),
+    path('weather/remove/saved/<int:city_id>/', views.unsave_place_view, name='remove_saved_place'),
+    path('weather/remove/favorite/<int:city_id>/', views.remove_favorite, name='remove_favorite'),
 ]

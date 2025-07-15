@@ -3,7 +3,6 @@
   class="favorites__empty"
   role="region"
   aria-label="Empty State"
-  style="display: none"
 >
   <div class="empty-content">
     <div class="empty-icon" aria-hidden="true">⭐</div>
@@ -11,7 +10,7 @@
     <p class="empty-message">
       You haven't added any cities to your favorites yet.
     </p>
-    <a href="/weather/search/" class="empty-btn" aria-label="Start exploring">
+    <a href="{% url 'search_places_view' %}" class="empty-btn" aria-label="Start exploring">
       <span class="btn-icon" aria-hidden="true">🔍</span>
       Start Exploring
     </a>

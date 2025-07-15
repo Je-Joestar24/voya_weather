@@ -1,0 +1,30 @@
+<li class="favorite-card" role="listitem">
+  <div class="favorite-card__header">
+    <h3 class="favorite-card__city">{{ place.city }}</h3>
+    <span
+      class="favorite-card__icon favorite-card__icon--active"
+      aria-label="Favorite"
+      >⭐</span
+    >
+  </div>
+  <div class="favorite-card__weather">{{ place.temp }}°C, {{ place.condition }}</div>
+  <div class="favorite-card__meta">Favorited on {{ place.favorited_at|date:"F j, Y" }}</div>
+  <div class="favorite-card__actions">
+    <a
+      href="{% url 'place_details' place.id %}"
+      class="favorite-card__btn favorite-card__btn--view"
+      aria-label="View {{ place.city }} weather details"
+    >
+      <span class="btn-icon" aria-hidden="true">🔍</span>
+      View Details
+    </a>
+    <a
+      href="{% url 'remove_favorite' place.id %}"
+      class="favorite-card__btn favorite-card__btn--remove"
+      aria-label="Remove Tokyo from favorites"
+    >
+      <span class="btn-icon" aria-hidden="true">🗑️</span>
+      Remove
+    </a>
+  </div>
+</li>

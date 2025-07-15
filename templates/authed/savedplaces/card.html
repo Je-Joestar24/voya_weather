@@ -20,13 +20,14 @@
       <span class="btn-icon" aria-hidden="true">🔍</span>
       View Details
     </a>
-    <button
+    <a
       class="place-card__btn place-card__btn--delete"
       aria-label="Delete {{ place.city }} from saved places"
       data-city-id="{{ place.id }}"
+      href="{% url 'remove_saved_place' place.id %}"
     >
       <span class="btn-icon" aria-hidden="true">🗑️</span>
       Delete
-    </button>
+    </a>
   </div>
 </li>

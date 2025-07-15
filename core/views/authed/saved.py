@@ -6,6 +6,13 @@ from core.models.city import City
 from django.db.models import Q
 from core.views.authed.search import fetch_weather  # Import your fetch_weather function
 from django.conf import settings
+import logging
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.db import DatabaseError, IntegrityError
+from django.shortcuts import get_object_or_404, redirect
+
+logger = logging.getLogger(__name__)
 
 @login_required
 def saved_places_view(request):
@@ -63,13 +70,50 @@ def saved_places_view(request):
     }
     return render(request, 'authed/savedplaces/index.html', context)
 
+
 @login_required
 def toggle_favorite_place(request, city_id):
+    """
+    Add or remove a city from the user’s favorites.
+    Redirects to 'saved_places_view' either way.
+    """
     user = request.user
     city = get_object_or_404(City, id=city_id)
-    favorite, created = FavoritePlace.objects.get_or_create(user=user, city=city)
-    if not created:
-        # Already a favorite, so remove
-        favorite.delete()
-    # Redirect back to saved places
-    return redirect('saved_places_view')
+
+    try:
+        favorite, created = FavoritePlace.objects.get_or_create(user=user, city=city)
+        if created:
+            messages.success(request, f"✔ {city.name} added to favorites.")
+        else:
+            favorite.delete()
+            messages.info(request, f"✖ {city.name} removed from favorites.")
+    except (IntegrityError, DatabaseError) as e:
+        logger.error("Favorite toggle failed for user %s / city %s: %s", user.id, city.id, e)
+        messages.error(request, "Something went wrong—please try again.")
+
+    return redirect("saved_places_view")
+
+
+@login_required
+def unsave_place_view(request, city_id):
+    """
+    Remove a saved place.  
+    If the record is missing we log it but still redirect cleanly.
+    """
+    user = request.user
+    city = get_object_or_404(City, id=city_id)
+
+    try:
+        # .filter().delete() avoids the extra get_or_create() round-trip
+        deleted, _ = SavedPlace.objects.filter(user=user, city=city).delete()
+        if deleted:
+            messages.info(request, f"✖ {city.name} removed from saved places.")
+        else:
+            # No row found; not an error, but useful to know.
+            logger.warning("Unsave called but no record for user %s / city %s", user.id, city.id)
+            messages.warning(request, f"{city.name} wasn’t in your saved places.")
+    except DatabaseError as e:
+        logger.error("Unsave failed for user %s / city %s: %s", user.id, city.id, e)
+        messages.error(request, "Couldn’t remove the place—please try again.")
+
+    return redirect("saved_places_view")

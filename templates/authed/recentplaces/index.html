@@ -17,7 +17,7 @@
 
         {% include 'authed/recentplaces/search.html'%}
         
-        {% if places and places|length > 1 %}
+        {% if places and places|length > 0 %}
                 {% include 'authed/recentplaces/cards.html'%}
         {% else %}
                 {% include 'authed/recentplaces/empty.html'%}

@@ -15,13 +15,14 @@
 
   {% include 'authed/favorites/search.html'%}
   
-  {% include 'authed/favorites/filter.html'%}
-  
-  {% include 'authed/favorites/cards.html'%}
+  {% if places and places|length > 0 %}
+    {% include 'authed/favorites/cards.html'%}    
+  {% else %}
+    {% include 'authed/favorites/empty.html'%}
+  {% endif %}
 
   {% include 'components/authed/pagination.html'%}
 
-  {% include 'authed/favorites/empty.html'%}
 
 </main>
 {% endblock %}

@@ -15,14 +15,13 @@
 
   {% include 'authed/savedplaces/search.html'%}
 
-  {% if places and places|length > 1 %}
+  {% if places and places|length > 0 %}
       {% include "authed/savedplaces/saved.html" %}
   {% else %}
       {% include "authed/savedplaces/empty.html" %}
   {% endif %}
 
   {% include 'components/authed/pagination.html'%}
-  
   
 </main>
 {% endblock %}
