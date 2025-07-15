@@ -1,17 +1,123 @@
-# VoyaWeather: Plan with Weather
+# VoyaWeather 🌦️
 
-## 🔧 Prerequisites
+**VoyaWeather** is a modern, modular Django web application that helps users plan their travels and daily activities by providing up-to-date weather information for cities around the world. The app features user authentication, city search, saved and favorite places, and a beautiful, accessible UI.
 
-Make sure you have the following installed **before running this project**:
+---
 
-- [Python 3.10+](https://www.python.org/downloads/)
-- [PostgreSQL](https://www.postgresql.org/download/)
-  - Must be accessible via the `psql` command
-  - Ensure the service is running on port `5432`
-- `pip` / `pipenv` / `poetry` (depending on your environment)
+## 🚀 Features
 
-You should be able to run:
+- **User Authentication**
+  - Secure signup, login, and logout flows
+  - Password validation and error feedback
+
+- **Weather Dashboard**
+  - View weather summaries for popular cities
+  - Animated, responsive dashboard with highlights and call-to-action
+
+- **City Search**
+  - Search for any city and view current weather conditions
+  - Results include temperature, weather description, and emoji icon
+
+- **Saved Places**
+  - Save cities to your personal list for quick access
+  - Remove places from your saved list
+  - See when you saved each place
+
+- **Favorites**
+  - Mark any saved city as a favorite for easy reference
+
+- **Recently Viewed**
+  - Automatically logs cities you view in detail
+  - No duplicates: the most recently viewed city always appears at the top
+
+- **Accessibility & Responsiveness**
+  - Semantic HTML, ARIA labels, and alt text throughout
+  - Fully responsive design using CSS Grid and Flexbox
+  - Smooth CSS animations for enhanced user experience
+
+- **Modular & Reusable Components**
+  - Django class-based views and modular templates
+  - Reusable cards, navbars, and search bars
+
+---
+
+## 🛠️ Prerequisites
+
+- Python 3.10+
+- PostgreSQL (running on port 5432)
+- pip (or pipenv/poetry)
+
+---
+
+## 📦 Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repo-url>
+   cd voya_weather
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Configure your environment:**
+   - Copy `.env.example` to `.env` and set your environment variables (e.g., `OPENWEATHER_API_KEY`, database credentials).
+
+4. **Apply migrations:**
+   ```bash
+   python manage.py migrate
+   ```
+
+5. **Create a superuser (optional, for admin access):**
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. **Run the development server:**
+   ```bash
+   python manage.py runserver
+   ```
+
+7. **Access the app:**
+   - Open [http://localhost:8000](http://localhost:8000) in your browser.
+
+---
+
+## 🧪 Running Tests
 
 ```bash
-psql --version
+python manage.py test
 ```
+
+---
+
+## 🗂️ Project Structure
+
+- `core/` – Main Django app (models, views, templates)
+- `static/` – CSS, JS, images
+- `templates/` – HTML templates (modular, reusable)
+- `manage.py` – Django management script
+
+---
+
+## 🌐 API & Integrations
+
+- **Weather Data:** [OpenWeatherMap API](https://openweathermap.org/api)
+
+---
+
+## 🙏 Acknowledgements
+
+- Django Project
+- OpenWeatherMap
+- All contributors
+
+---
+
+## 📣 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
