@@ -68,11 +68,12 @@
   </div>
   <div id="mobile-menu" class="header__mobile-menu" role="menu" aria-label="Mobile Navigation" hidden>
     {% if not authed %}
-    <a href="#" role="menuitem" aria-label="Home">Home</a>
-    <a href="#" role="menuitem" aria-label="About">About</a>
+    <a href="{{ home_url }}" role="menuitem" aria-label="Home">Home</a>
+    <a href="{{ about_url }}" role="menuitem" aria-label="About">About</a>
     {% else %}
-    <a href="#" role="menuitem" aria-label="Search Books">Search Books</a>
-    <a href="#" role="menuitem" aria-label="Collection">Collection</a>
+    <a href="{{ dashboard_url }}" role="menuitem" aria-label="Dashboard">Dashboard</a>
+    <a href="{{ search_places_url }}" role="menuitem" aria-label="Search">Search</a>
+    <a href="{{ saved_places_url }}" role="menuitem" aria-label="Saved">Saved</a>
     {% endif %}
   </div>
 </nav>

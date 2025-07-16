@@ -9,4 +9,16 @@
         flex-direction: row;
         justify-content: space-around;
     }
+
+    .header__container{
+        padding: 0px;
+    }
+
+    .header__btn{
+        font-size: .7em;
+    }
+
+    .header__actions {
+        gap: .5rem;
+    }
 }
