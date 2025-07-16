@@ -1,57 +1,57 @@
 """
 Login View Module
-
-This module handles user authentication through both username and email.
-It provides a flexible login system that allows users to authenticate
-using either their username or email address.
+-----------------
+Handles user authentication using Django's form system for validation and user authentication.
 """
 
 from .utils import render, redirect, User, authenticate, login, messages
+from django import forms
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label="Username or Email")
+    password = forms.CharField(widget=forms.PasswordInput, label="Password")
+
+    def clean(self):
+        cleaned_data = super().clean()
+        username_or_email = cleaned_data.get("username")
+        password = cleaned_data.get("password")
+        if username_or_email and password:
+            # Try to authenticate with username
+            user = authenticate(None, username=username_or_email, password=password)
+            if user is None:
+                # Try to authenticate with email
+                try:
+                    user_obj = User.objects.get(email=username_or_email)
+                    user = authenticate(None, username=user_obj.username, password=password)
+                except User.DoesNotExist:
+                    user = None
+            if user is None:
+                raise forms.ValidationError("Invalid username/email or password")
+            self.user = user
+        return cleaned_data
+
 
 def login_process(request):
     """
-    Handle user login process with support for both username and email authentication.
-    
+    Handle user login process using Django's form system.
     Args:
         request (HttpRequest): The HTTP request object containing POST data
-        
     Returns:
-        HttpResponse: Redirects to search page if authenticated,
-                     renders login page with error if authentication fails
-        
-    Process:
-        1. Checks if user is already authenticated
-        2. Attempts authentication with username
-        3. If username fails, attempts authentication with email
-        4. On success, redirects to next URL or search page
-        5. On failure, displays error message
+        HttpResponse: Redirects to dashboard on success, renders login page with errors on failure
     """
     if request.user.is_authenticated:
-        return redirect('dashboard_view') 
+        return redirect('dashboard_view')
 
     if request.method == 'POST':
-        username_or_email = request.POST.get('username')
-        password = request.POST.get('password')
-        
-        # Try to authenticate with username
-        user = authenticate(request, username=username_or_email, password=password)
-        
-        # If authentication fails, try with email
-        if user is None:
-            try:
-                # Get user by email
-                user_obj = User.objects.get(email=username_or_email)
-                # Try to authenticate with email
-                user = authenticate(request, username=user_obj.username, password=password)
-            except User.DoesNotExist:
-                user = None
-        
-        if user is not None:
-            login(request, user)
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            login(request, form.user)
             next_url = request.GET.get('next', '/dashboard/')
+            messages.success(request, "Login successful! Welcome back.")
             return redirect(next_url)
         else:
-            messages.error(request, 'Invalid username/email or password')
-            return render(request, 'unauthed/login/index.html', {'error': True})
-    
-    return render(request, 'unauthed/login/index.html')
+            messages.error(request, "Please correct the errors below.")
+    else:
+        form = LoginForm()
+
+    return render(request, 'unauthed/login/index.html', {'form': form})

@@ -1,81 +1,67 @@
 """
 Signup View Module
-
-This module handles new user registration. It provides a secure
-signup process with validation for username, email, and password
-requirements.
+------------------
+Handles new user registration using Django's form system for validation and model binding.
 """
 
-from .utils import redirect, render, User, login
+from .utils import redirect, render, User, login, messages
+from django import forms
+
+class SignupForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput, label="Password")
+    confirm_password = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
+
+    class Meta:
+        model = User
+        fields = ["fullname", "email", "username", "password"]
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("password")
+        confirm_password = cleaned_data.get("confirm_password")
+        if password and confirm_password and password != confirm_password:
+            self.add_error("confirm_password", "Passwords do not match")
+        return cleaned_data
+
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Email already exists")
+        return email
+
+    def clean_username(self):
+        username = self.cleaned_data.get("username")
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("Username already exists")
+        return username
+
 
 def signup_process(request):
     """
-    Handle new user registration process.
-    
+    Handle new user registration process using Django's form system.
     Args:
         request (HttpRequest): The HTTP request object containing POST data
-        
     Returns:
-        HttpResponse: Redirects to search page on success,
-                     renders signup page with errors on failure
-        
-    Process:
-        1. Validates user input (username, email, password)
-        2. Checks for existing username/email
-        3. Creates new user account
-        4. Automatically logs in the new user
-        5. Redirects to search page
-        
-    Validation Rules:
-        - Passwords must match
-        - Email must be unique
-        - Username must be unique
+        HttpResponse: Redirects to dashboard on success, renders signup page with errors on failure
     """
     if request.user.is_authenticated:
-        return redirect('dashboard_view') 
+        return redirect('dashboard_view')
 
     if request.method == 'POST':
-        fullname = request.POST.get('fullname')
-        email = request.POST.get('email')
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('confirm_password')
-
-        # Validation
-        if password != confirm_password:
-            return render(request, 'unauthed/signup/index.html', {
-                'error': 'Passwords do not match'
-            })
-
-        # Check if email already exists
-        if User.objects.filter(email=email).exists():
-            return render(request, 'unauthed/signup/index.html', {
-                'error': 'Email already exists'
-            })
-
-        # Check if username already exists
-        if User.objects.filter(username=username).exists():
-            return render(request, 'unauthed/signup/index.html', {
-                'error': 'Username already exists'
-            })
-
-        try:
-            # Create new user with hashed password
+        form = SignupForm(request.POST)
+        if form.is_valid():
             user = User.objects.create_user(
-                fullname=fullname,
-                email=email,
-                username=username,
-                password=password
+                fullname=form.cleaned_data['fullname'],
+                email=form.cleaned_data['email'],
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password']
             )
-
             login(request, user)
-            
-            # Redirect to search book view
+            messages.success(request, "Signup successful! Welcome to VoyaWeather.")
             return redirect('dashboard_view')
-            
-        except Exception as e:
-            return render(request, 'unauthed/signup/index.html', {
-                'error': 'An error occurred during signup. Please try again.'
-            })
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        form = SignupForm()
 
-    return render(request, 'unauthed/signup/index.html')
+    return render(request, 'unauthed/signup/index.html', {'form': form})
