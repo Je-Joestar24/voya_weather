@@ -57,27 +57,36 @@
    cd voya_weather
    ```
 
-2. **Install dependencies:**
+2. **Create and activate a virtual environment (recommended):**
+   ```bash
+   python -m venv env
+   # On Windows:
+   env\Scripts\activate
+   # On macOS/Linux:
+   source env/bin/activate
+   ```
+
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Apply migrations:**
+4. **Apply migrations:**
    ```bash
    python manage.py migrate
    ```
 
-4. **Create a superuser (optional, for admin access):**
+5. **Create a superuser (optional, for admin access):**
    ```bash
    python manage.py createsuperuser
    ```
 
-5. **Run the development server:**
+6. **Run the development server:**
    ```bash
    python manage.py runserver
    ```
 
-6. **Access the app:**
+7. **Access the app:**
    - Open [http://localhost:8000](http://localhost:8000) in your browser.
 
 ---
