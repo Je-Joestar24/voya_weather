@@ -16,7 +16,7 @@ class ToggleFavoritePlaceView(LoginRequiredMixin, View):
     Add or remove a city from the user's favorites. Redirects to saved places view.
     Only handles POST requests.
     """
-    def post(self, request, city_id):
+    def get(self, request, city_id):
         """
         Toggle favorite status for a city for the current user.
         Args:

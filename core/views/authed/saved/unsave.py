@@ -16,7 +16,7 @@ class UnsavePlaceView(LoginRequiredMixin, View):
     Remove a city from the user's saved places. Handles missing records gracefully.
     Only handles POST requests.
     """
-    def post(self, request, city_id):
+    def get(self, request, city_id):
         """
         Remove a city from the user's saved places.
         Args:

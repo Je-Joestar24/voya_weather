@@ -1,7 +1,17 @@
 
 from django.urls import path
 from . import views
-from core.views.authed.saved import toggle_favorite_place
+from core.views.authed.dashboard.dashboard import DashboardView
+from core.views.authed.profile.profile import ProfileView
+from core.views.authed.favorites.favorites import FavoritePlacesView
+from core.views.authed.favorites.remove import remove_favorite
+from core.views.authed.saved.saved import SavedPlacesView
+from core.views.authed.saved.togglefavorite import ToggleFavoritePlaceView
+from core.views.authed.saved.unsave import UnsavePlaceView
+from core.views.authed.recent.recent import RecentsView
+from core.views.authed.details.details import PlaceDetailsView
+from core.views.authed.search.search import SearchPlacesView
+from core.views.authed.search.togglesave import ToggleSavePlaceView
 
 urlpatterns = [
     # UNAUTHED VIEWS
@@ -13,17 +23,17 @@ urlpatterns = [
     path('auth/signup/', views.signup_process, name='signup'),
     path('auth/login/', views.login_process, name='login'),
     path('auth/logout/', views.logout_process, name='logout'),
-    # AUTHED VIEWS
-    path('dashboard/', views.dashboard_view, name='dashboard_view'),
-    path('search/places/', views.search_places_view, name='search_places_view'),
-    path('favorite/places/', views.favorite_places_view, name='favorite_places_view'),
-    path('recents/', views.recents_view, name='recents_view'),
-    path('saved/places/', views.saved_places_view, name='saved_places_view'),
-    path('profile/', views.profile_view, name='profile_view'),
-    # OPERATION VIEWS
-    path('weather/saved/favorite/<int:city_id>/', views.toggle_favorite_place, name='toggle_favorite_place'),
-    path('weather/remove/saved/<int:city_id>/', views.unsave_place_view, name='remove_saved_place'),
+    # AUTHED VIEWS (CBVs)
+    path('dashboard/', DashboardView.as_view(), name='dashboard_view'),
+    path('search/places/', SearchPlacesView.as_view(), name='search_places_view'),
+    path('favorite/places/', FavoritePlacesView.as_view(), name='favorite_places_view'),
+    path('recents/', RecentsView.as_view(), name='recents_view'),
+    path('saved/places/', SavedPlacesView.as_view(), name='saved_places_view'),
+    path('profile/', ProfileView.as_view(), name='profile_view'),
+    # OPERATION VIEWS (CBVs for POST actions)
+    path('weather/saved/favorite/<int:city_id>/', ToggleFavoritePlaceView.as_view(), name='toggle_favorite_place'),
+    path('weather/remove/saved/<int:city_id>/', UnsavePlaceView.as_view(), name='remove_saved_place'),
     path('weather/remove/favorite/<int:city_id>/', views.remove_favorite, name='remove_favorite'),
-    path('search/places/save/<int:city_id>/', views.toggle_save_place, name='toggle_save_place'),
-    path('search/places/view/<int:city_id>/', views.place_details_view, name='place_details'),
+    path('search/places/save/<int:city_id>/', ToggleSavePlaceView.as_view(), name='toggle_save_place'),
+    path('search/places/view/<int:city_id>/', PlaceDetailsView.as_view(), name='place_details'),
 ]
