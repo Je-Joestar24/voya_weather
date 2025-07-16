@@ -1,40 +1,20 @@
 <!-- Recent Activity Section -->
-<section
-  class="dashboard__recent"
-  role="region"
-  aria-label="Recent Weather Searches"
->
+<section class="dashboard__recent" role="region" aria-label="Recent Weather Searches">
   <h2 class="section-title">Recent Weather Searches</h2>
   <ul class="recent-list" role="list">
-    <li class="recent-item" role="listitem">
-      <div class="recent-item__info">
-        <h3 class="recent-item__city">Paris</h3>
-        <p class="recent-item__weather">Partly cloudy, 22°C</p>
-        <span class="recent-item__time">Viewed 2 hours ago</span>
-      </div>
-      <button class="recent-item__btn" aria-label="View Paris details">
-        View Details
-      </button>
-    </li>
-    <li class="recent-item" role="listitem">
-      <div class="recent-item__info">
-        <h3 class="recent-item__city">New York</h3>
-        <p class="recent-item__weather">Sunny, 28°C</p>
-        <span class="recent-item__time">Viewed 5 hours ago</span>
-      </div>
-      <button class="recent-item__btn" aria-label="View New York details">
-        View Details
-      </button>
-    </li>
-    <li class="recent-item" role="listitem">
-      <div class="recent-item__info">
-        <h3 class="recent-item__city">Sydney</h3>
-        <p class="recent-item__weather">Rainy, 18°C</p>
-        <span class="recent-item__time">Viewed 1 day ago</span>
-      </div>
-      <button class="recent-item__btn" aria-label="View Sydney details">
-        View Details
-      </button>
-    </li>
+    {% for place in recents %}
+      <li class="recent-item" role="listitem">
+        <div class="recent-item__info">
+          <h3 class="recent-item__city">{{ place.city }}</h3>
+          <p class="recent-item__weather">{{ place.condition }}, {{ place.temp }}°C</p>
+          <span class="recent-item__time">Viewed {{ place.viewed_at|timesince }} ago</span>
+        </div>
+        <a href="{% url 'place_details' place.id %}" class="recent-item__btn" aria-label="View {{ place.city }} details">
+          View Details
+        </a>
+      </li>
+    {% empty %}
+      <li>No recent places found.</li>
+    {% endfor %}
   </ul>
 </section>

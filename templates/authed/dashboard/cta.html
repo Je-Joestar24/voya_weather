@@ -2,7 +2,7 @@
 <section class="dashboard__cta" role="region" aria-label="Quick Actions">
   <div class="cta-buttons">
     <a
-      href="/weather/search/"
+      href="{% url 'search_places_view' %}"
       class="cta-btn cta-btn--search"
       aria-label="Search places"
     >
@@ -10,7 +10,7 @@
       Search Places
     </a>
     <a
-      href="/places/saved/"
+      href="{% url 'saved_places_view' %}"
       class="cta-btn cta-btn--saved"
       aria-label="View saved places"
     >
@@ -18,7 +18,7 @@
       Saved Places
     </a>
     <a
-      href="/history/"
+      href="{% url 'recents_view' %}"
       class="cta-btn cta-btn--history"
       aria-label="View history"
     >

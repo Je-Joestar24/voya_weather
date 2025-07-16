@@ -9,28 +9,40 @@
       <div class="stat-card__icon" aria-hidden="true">📍</div>
       <div class="stat-card__content">
         <h3 class="stat-card__title">Total Saved Places</h3>
-        <p class="stat-card__value">8 Places</p>
+        <p class="stat-card__value">{{ summary.total_saved }} Places</p>
       </div>
     </li>
     <li class="stat-card" role="listitem">
       <div class="stat-card__icon" aria-hidden="true">🌞</div>
       <div class="stat-card__content">
         <h3 class="stat-card__title">Hottest Saved City</h3>
-        <p class="stat-card__value">Dubai - 38°C</p>
+        {% if summary.hottest %}
+          <p class="stat-card__value">{{ summary.hottest.city.name }} - {{ summary.hottest.temp }}°C</p>
+        {% else %}
+          <p class="stat-card__value">--</p>
+        {% endif %}
       </div>
     </li>
     <li class="stat-card" role="listitem">
       <div class="stat-card__icon" aria-hidden="true">❄️</div>
       <div class="stat-card__content">
         <h3 class="stat-card__title">Coldest Saved City</h3>
-        <p class="stat-card__value">Moscow - -5°C</p>
+        {% if summary.coldest %}
+          <p class="stat-card__value">{{ summary.coldest.city.name }} - {{ summary.coldest.temp }}°C</p>
+        {% else %}
+          <p class="stat-card__value">--</p>
+        {% endif %}
       </div>
     </li>
     <li class="stat-card" role="listitem">
       <div class="stat-card__icon" aria-hidden="true">👁️</div>
       <div class="stat-card__content">
         <h3 class="stat-card__title">Last Viewed City</h3>
-        <p class="stat-card__value">Tokyo - 3 hrs ago</p>
+        {% if summary.last_viewed %}
+          <p class="stat-card__value">{{ summary.last_viewed.city.name }} - {{ summary.last_viewed.ago|timesince }} ago</p>
+        {% else %}
+          <p class="stat-card__value">--</p>
+        {% endif %}
       </div>
     </li>
   </ul>
