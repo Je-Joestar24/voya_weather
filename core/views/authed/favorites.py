@@ -1,20 +1,22 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from core.models.favorites import FavoritePlace
-from core.models.city import City
-from django.db.models import Q
-from django.conf import settings
-import logging
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.db import DatabaseError, IntegrityError
-from django.shortcuts import get_object_or_404, redirect
-from core.views.authed.search import fetch_weather
+"""
+Favorites View Module
+---------------------
+Handles the display and management of user's favorite places, including search, add, and remove actions.
+"""
+
+from core.views.authed.util import render, login_required, FavoritePlace, City,  Q, settings, logging, messages, login_required, DatabaseError, get_object_or_404, redirect, fetch_weather
 
 logger = logging.getLogger(__name__)
 
 @login_required
 def favorite_places_view(request):
+    """
+    Display the user's favorite places, with optional search functionality.
+    Args:
+        request (HttpRequest): The HTTP request object.
+    Returns:
+        HttpResponse: Renders the favorites page with context data.
+    """
     user = request.user
     search_query = request.GET.get('q', '').strip()
 
@@ -67,8 +69,12 @@ def favorite_places_view(request):
 @login_required
 def remove_favorite(request, city_id):
     """
-    Remove a favorite place.  
-    If the record is missing we log it but still redirect cleanly.
+    Remove a city from the user's favorites. Handles missing records gracefully.
+    Args:
+        request (HttpRequest): The HTTP request object.
+        city_id (int): The ID of the city to remove from favorites.
+    Returns:
+        HttpResponse: Redirects to the favorites page with a status message.
     """
     user = request.user
     city = get_object_or_404(City, id=city_id)

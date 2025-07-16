@@ -1,14 +1,19 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from django.conf import settings
-from django.db.models import Max, Min
-from core.models.saved import SavedPlace
-from core.models.favorites import FavoritePlace
-from core.models.recents import RecentView
-from core.models.city import City
-from core.views.authed.search import fetch_weather
+"""
+Dashboard View Module
+---------------------
+Handles the user dashboard, including summary statistics, recent activity, and highlights of favorite/saved places.
+"""
+
+from core.views.authed.util  import render, login_required, settings, SavedPlace, FavoritePlace, RecentView, fetch_weather
 
 def get_summary(user):
+    """
+    Gather summary statistics for the dashboard, including total saved places, hottest/coldest saved city, and last viewed city.
+    Args:
+        user (User): The current authenticated user.
+    Returns:
+        dict: Summary data for dashboard display.
+    """
     # Total saved places
     saved_qs = SavedPlace.objects.filter(user=user).select_related('city')
     total_saved = saved_qs.count()
@@ -58,6 +63,14 @@ def get_summary(user):
     }
 
 def get_recents(user, limit=3):
+    """
+    Get the most recent unique cities viewed by the user.
+    Args:
+        user (User): The current authenticated user.
+        limit (int): Maximum number of recent cities to return.
+    Returns:
+        list: Recent city data for dashboard display.
+    """
     # Get unique recent cities, most recent first
     recents_qs = (
         RecentView.objects.filter(user=user)
@@ -86,6 +99,14 @@ def get_recents(user, limit=3):
     return recents
 
 def get_highlights(user, limit=4):
+    """
+    Get highlights of the user's favorite places for dashboard display.
+    Args:
+        user (User): The current authenticated user.
+        limit (int): Maximum number of highlights to return.
+    Returns:
+        list: Highlighted favorite city data.
+    """
     # Top N favorite places, most recently favorited
     favorites_qs = (
         FavoritePlace.objects.filter(user=user)
@@ -108,6 +129,13 @@ def get_highlights(user, limit=4):
 
 @login_required
 def dashboard_view(request):
+    """
+    Render the dashboard page for authenticated users, including summary, recents, and highlights.
+    Args:
+        request (HttpRequest): The HTTP request object.
+    Returns:
+        HttpResponse: Renders the dashboard template with context data.
+    """
     user = request.user
     summary = get_summary(user)
     recents = get_recents(user)

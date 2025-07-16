@@ -1,11 +1,10 @@
-import requests
-from django.conf import settings
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
-from requests.exceptions import RequestException
-from core.models.city import City
-from core.models.saved import SavedPlace
-from typing import Optional
+"""
+Search Places View Module
+-------------------------
+Handles searching for cities, displaying weather data, and saving/unsaving places for authenticated users.
+"""
+
+from core.views.authed.util  import settings, requests, login_required, render, redirect, get_object_or_404, RequestException, City, SavedPlace, Optional
 
 CITIES = [
     'Nuuk', 'Ormoc City', 'Cebu City', 'Mandaue City',
@@ -24,6 +23,14 @@ EMOJI_MAP = {
 }
 
 def fetch_weather(city, api_key):
+    """
+    Fetch live weather data for a city using the OpenWeather API.
+    Args:
+        city (str): City name.
+        api_key (str): OpenWeather API key.
+    Returns:
+        dict or None: Weather data dictionary or None if not found.
+    """
     try:
         response = requests.get(
             settings.WEATHER_API_URL,
@@ -49,7 +56,15 @@ def fetch_weather(city, api_key):
         return None
     
 def get_or_create_city_with_weather(city_name: str, api_key: str, user) -> Optional[dict]:
-    """Fetch weather and persist city if needed. Return weather + city_id, or None."""
+    """
+    Fetch weather and persist city if needed. Return weather + city_id, or None.
+    Args:
+        city_name (str): City name.
+        api_key (str): OpenWeather API key.
+        user (User): The current authenticated user.
+    Returns:
+        dict or None: Weather data with city_id, or None if not found.
+    """
     weather = fetch_weather(city_name, api_key)
     if not weather:
         return None
@@ -87,6 +102,13 @@ def get_or_create_city_with_weather(city_name: str, api_key: str, user) -> Optio
 
 @login_required
 def search_places_view(request):
+    """
+    Display the search places page, showing weather for default or searched cities.
+    Args:
+        request (HttpRequest): The HTTP request object.
+    Returns:
+        HttpResponse: Renders the search places page with context data.
+    """
     api_key = settings.OPENWEATHER_API_KEY
     city_query = request.GET.get('city', '').strip()
 
@@ -122,6 +144,14 @@ def search_places_view(request):
 
 @login_required
 def toggle_save_place(request, city_id):
+    """
+    Add or remove a city from the user's saved places. Redirects to search places view.
+    Args:
+        request (HttpRequest): The HTTP request object.
+        city_id (int): The ID of the city to toggle as saved.
+    Returns:
+        HttpResponse: Redirects to the search places page.
+    """
     city = get_object_or_404(City, id=city_id)
     user = request.user
     saved, created = SavedPlace.objects.get_or_create(user=user, city=city)

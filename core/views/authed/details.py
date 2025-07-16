@@ -1,15 +1,23 @@
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from django.conf import settings
-import requests
-from core.models.city import City
-from django.views.decorators.cache import cache_page
-from core.models.recents import RecentView
-from django.utils import timezone
+"""
+Details View Module
+-------------------
+Handles the display of detailed weather information for a specific city, including live API fetch and recent view tracking.
+"""
+
+from core.views.authed.util import render, get_object_or_404, login_required, settings, requests, City, cache_page, RecentView,  timezone
 
 @cache_page(60 * 5)        # 5 minutes
 @login_required
 def place_details_view(request, city_id):
+    """
+    Display detailed weather information for a specific city.
+    Tracks the city as recently viewed by the user.
+    Args:
+        request (HttpRequest): The HTTP request object.
+        city_id (int): The ID of the city to display.
+    Returns:
+        HttpResponse: Renders the details page with weather data.
+    """
     city = get_object_or_404(City, id=city_id)
     api_key = settings.OPENWEATHER_API_KEY
 
@@ -72,6 +80,13 @@ def place_details_view(request, city_id):
     })
 
 def get_emoji(condition):
+    """
+    Map weather condition strings to emoji for display.
+    Args:
+        condition (str): Weather condition (e.g., 'Rain', 'Clear').
+    Returns:
+        str: Corresponding emoji character.
+    """
     EMOJI_MAP = {
         'Snow': '❄️',
         'Rain': '🌧️',

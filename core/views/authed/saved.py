@@ -1,21 +1,22 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
-from core.models.saved import SavedPlace
-from core.models.favorites import FavoritePlace
-from core.models.city import City
-from django.db.models import Q
-from core.views.authed.search import fetch_weather  # Import your fetch_weather function
-from django.conf import settings
-import logging
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.db import DatabaseError, IntegrityError
-from django.shortcuts import get_object_or_404, redirect
+"""
+Saved Places View Module
+------------------------
+Handles the display and management of user's saved places, including search, add/remove, and favorite toggling.
+"""
+
+from core.views.authed.util import login_required, render, redirect, get_object_or_404, SavedPlace, FavoritePlace, City, Q, fetch_weather, settings, logging, messages, login_required, DatabaseError, IntegrityError, get_object_or_404, redirect
 
 logger = logging.getLogger(__name__)
 
 @login_required
 def saved_places_view(request):
+    """
+    Display the user's saved places, with optional search functionality.
+    Args:
+        request (HttpRequest): The HTTP request object.
+    Returns:
+        HttpResponse: Renders the saved places page with context data.
+    """
     user = request.user
     search_query = request.GET.get('q', '').strip()
 
@@ -76,8 +77,12 @@ def saved_places_view(request):
 @login_required
 def toggle_favorite_place(request, city_id):
     """
-    Add or remove a city from the user’s favorites.
-    Redirects to 'saved_places_view' either way.
+    Add or remove a city from the user's favorites. Redirects to saved places view.
+    Args:
+        request (HttpRequest): The HTTP request object.
+        city_id (int): The ID of the city to toggle as favorite.
+    Returns:
+        HttpResponse: Redirects to the saved places page with a status message.
     """
     user = request.user
     city = get_object_or_404(City, id=city_id)
@@ -99,8 +104,12 @@ def toggle_favorite_place(request, city_id):
 @login_required
 def unsave_place_view(request, city_id):
     """
-    Remove a saved place.  
-    If the record is missing we log it but still redirect cleanly.
+    Remove a city from the user's saved places. Handles missing records gracefully.
+    Args:
+        request (HttpRequest): The HTTP request object.
+        city_id (int): The ID of the city to remove from saved places.
+    Returns:
+        HttpResponse: Redirects to the saved places page with a status message.
     """
     user = request.user
     city = get_object_or_404(City, id=city_id)

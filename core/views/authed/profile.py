@@ -1,42 +1,24 @@
 """
 Profile View Module
-
-This module handles user profile management, including displaying
-and updating user information. It provides both GET and POST
-functionality for viewing and modifying profile data.
+-------------------
+Handles user profile management, including displaying and updating user information for authenticated users.
 """
 
-
-from django.shortcuts import render
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from core.views.authed.util import render, messages, login_required
 
 @login_required
 def profile_view(request):
     """
-    Handle user profile display and updates.
-    
+    Handle user profile display and updates for authenticated users.
     Args:
-        request (HttpRequest): The HTTP request object containing POST data for updates
-        
+        request (HttpRequest): The HTTP request object containing POST data for updates.
     Returns:
-        HttpResponse: Renders profile page with user data
-        
+        HttpResponse: Renders the profile page with user data and status messages.
     Process:
-        GET:
-            - Displays current user profile information
-        POST:
-            - Updates user profile with new information
-            - Handles validation and error cases
-            - Provides feedback through messages framework
-    
+        GET: Displays current user profile information.
+        POST: Updates user profile, handles validation, and provides feedback.
     Context Data:
-        - fullname: User's full name
-        - username: User's username
-        - email: User's email address
-        - id: User's ID
-        - status: Current operation status
-        - message: Status message for the user
+        fullname, username, email, id, status, message
     """
     user = request.user  # Get the logged-in user
     

@@ -1,13 +1,20 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from core.models.recents import RecentView
-from core.models.city import City
-from django.db.models import Q
-from django.conf import settings
-from core.views.authed.search import fetch_weather
+"""
+Recent Views Module
+-------------------
+Handles the display of recently viewed places for authenticated users, including search and deduplication logic.
+"""
+
+from core.views.authed.util import render, login_required, RecentView, settings, fetch_weather
 
 @login_required
 def recents_view(request):
+    """
+    Display the user's recently viewed places, with optional search functionality.
+    Args:
+        request (HttpRequest): The HTTP request object.
+    Returns:
+        HttpResponse: Renders the recent places page with context data.
+    """
     user = request.user
     search_query = request.GET.get('q', '').strip()
 
