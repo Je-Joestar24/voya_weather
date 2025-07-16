@@ -1,9 +1,7 @@
 """
 Unauthenticated Views Package Initialization
 
-This module imports and exposes all views that are accessible to
-unauthenticated users. These views handle the public-facing pages
-of the application before user login.
+This package exposes all views accessible to unauthenticated (unlogged) users. These views handle public-facing pages such as the landing page, about, login, and signup forms.
 
 Imported Views:
 - about_view: Displays the about page
