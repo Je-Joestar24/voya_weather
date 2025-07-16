@@ -49,6 +49,24 @@
 
 ---
 
+## 🗄️ Database Setup (PostgreSQL)
+
+Before running the app, you must create the database and user in PostgreSQL:
+
+```bash
+# Open the PostgreSQL shell (psql) as a superuser, e.g.:
+psql -U postgres
+
+# Then run the following commands:
+CREATE DATABASE voyaweather;
+CREATE USER voyaweather WITH PASSWORD 'Voya@09';
+GRANT ALL PRIVILEGES ON DATABASE voyaweather TO voyaweather;
+```
+
+- If you use a different database name, user, or password, update the values in `voya_weather/settings.py` accordingly.
+
+---
+
 ## 📦 Installation
 
 1. **Clone the repository:**
