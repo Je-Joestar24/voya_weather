@@ -5,6 +5,7 @@ Handles the display of detailed weather information for a specific city, includi
 """
 
 from core.views.authed.util import render, get_object_or_404, login_required, settings, requests, City, cache_page, RecentView,  timezone
+from .emoji_helper import get_emoji
 
 @cache_page(60 * 5)        # 5 minutes
 @login_required
@@ -78,23 +79,3 @@ def place_details_view(request, city_id):
         'message': 'VIEW DETAILS',
         'place': weather_data,
     })
-
-def get_emoji(condition):
-    """
-    Map weather condition strings to emoji for display.
-    Args:
-        condition (str): Weather condition (e.g., 'Rain', 'Clear').
-    Returns:
-        str: Corresponding emoji character.
-    """
-    EMOJI_MAP = {
-        'Snow': '❄️',
-        'Rain': '🌧️',
-        'Clouds': '☁️',
-        'Clear': '☀️',
-        'Thunderstorm': '🌩️',
-        'Drizzle': '🌦️',
-        'Mist': '🌫️',
-        'Fog': '🌁',
-    }
-    return EMOJI_MAP.get(condition, '🌍')
