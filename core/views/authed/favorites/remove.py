@@ -1,3 +1,9 @@
+"""
+Remove Favorite View Module
+--------------------------
+Handles the removal of a city from the user's favorites, with error handling and user feedback.
+"""
+
 from core.views.authed.util import login_required, FavoritePlace, City, logging, messages, login_required, DatabaseError, get_object_or_404, redirect
 
 logger = logging.getLogger(__name__)
@@ -11,6 +17,10 @@ def remove_favorite(request, city_id):
         city_id (int): The ID of the city to remove from favorites.
     Returns:
         HttpResponse: Redirects to the favorites page with a status message.
+    Process:
+        - Attempts to delete the favorite record for the user and city.
+        - If not found, logs a warning and informs the user.
+        - Handles database errors gracefully and provides user feedback.
     """
     user = request.user
     city = get_object_or_404(City, id=city_id)

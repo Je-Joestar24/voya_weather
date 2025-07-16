@@ -39,6 +39,10 @@
   - Django class-based views and modular templates
   - Reusable cards, navbars, and search bars
 
+- **Class-Based Views (CBVs)**
+  - All major views use Django class-based views for modular, maintainable, and reusable logic
+  - Easier to extend and customize for future features
+
 ---
 
 ## 🛠️ Prerequisites
@@ -119,7 +123,7 @@ python manage.py test
 
 ## 🗂️ Project Structure
 
-- `core/` – Main Django app (models, views, templates)
+- `core/` – Main Django app (models, views, templates, **class-based views for all major features**)
 - `static/` – CSS, JS, images
 - `templates/` – HTML templates (modular, reusable)
 - `manage.py` – Django management script

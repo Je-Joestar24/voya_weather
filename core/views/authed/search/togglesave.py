@@ -1,25 +1,31 @@
 """
-Search Places View Module
--------------------------
-Handles searching for cities, displaying weather data, and saving/unsaving places for authenticated users.
+Toggle Save Place View Module
+----------------------------
+Handles adding or removing a city from the user's saved places via POST request.
 """
 
-from core.views.authed.util  import login_required, redirect, get_object_or_404, City, SavedPlace
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import View
+from core.views.authed.util  import get_object_or_404, City, SavedPlace, redirect
 
-@login_required
-def toggle_save_place(request, city_id):
+class ToggleSavePlaceView(LoginRequiredMixin, View):
     """
     Add or remove a city from the user's saved places. Redirects to search places view.
-    Args:
-        request (HttpRequest): The HTTP request object.
-        city_id (int): The ID of the city to toggle as saved.
-    Returns:
-        HttpResponse: Redirects to the search places page.
+    Only handles POST requests.
     """
-    city = get_object_or_404(City, id=city_id)
-    user = request.user
-    saved, created = SavedPlace.objects.get_or_create(user=user, city=city)
-    if not created:
-        # Already saved, so unsave (delete)
-        saved.delete()
-    return redirect('search_places_view')
+    def post(self, request, city_id):
+        """
+        Toggle save status for a city for the current user.
+        Args:
+            request (HttpRequest): The HTTP request object.
+            city_id (int): The ID of the city to toggle as saved.
+        Returns:
+            HttpResponse: Redirects to the search places page.
+        """
+        city = get_object_or_404(City, id=city_id)
+        user = request.user
+        saved, created = SavedPlace.objects.get_or_create(user=user, city=city)
+        if not created:
+            # Already saved, so unsave (delete)
+            saved.delete()
+        return redirect('search_places_view')
