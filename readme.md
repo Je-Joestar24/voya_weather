@@ -53,7 +53,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/Je-Joestar24/voya_weather
    cd voya_weather
    ```
 
@@ -62,25 +62,22 @@
    pip install -r requirements.txt
    ```
 
-3. **Configure your environment:**
-   - Copy `.env.example` to `.env` and set your environment variables (e.g., `OPENWEATHER_API_KEY`, database credentials).
-
-4. **Apply migrations:**
+3. **Apply migrations:**
    ```bash
    python manage.py migrate
    ```
 
-5. **Create a superuser (optional, for admin access):**
+4. **Create a superuser (optional, for admin access):**
    ```bash
    python manage.py createsuperuser
    ```
 
-6. **Run the development server:**
+5. **Run the development server:**
    ```bash
    python manage.py runserver
    ```
 
-7. **Access the app:**
+6. **Access the app:**
    - Open [http://localhost:8000](http://localhost:8000) in your browser.
 
 ---
