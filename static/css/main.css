@@ -11,6 +11,7 @@
 @import './favorites/index.css';
 @import './profile/index.css';
 @import './details/index.css';
+@import './message/index.css';
 @import './component/paginations.css';
 
 :root {
@@ -38,6 +39,7 @@
   --theme-btn: #FF8A65; /* button color */
   --theme-btn-hover: #FF7043; /* button hover */
   --theme-globe: #FFE0B2; /* subtle globe/map accent */
+  --theme-accent-error: #FFB3A7; /* pastel error red */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

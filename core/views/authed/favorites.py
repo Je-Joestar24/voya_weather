@@ -58,6 +58,8 @@ def favorite_places_view(request):
     context = {
         'places': places,
         'search_query': search_query,
+        'status': 'info',
+        'message': 'FAVORITES PAGE'
     }
     return render(request, 'authed/favorites/index.html', context)
 

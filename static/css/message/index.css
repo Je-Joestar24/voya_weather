@@ -1,0 +1,88 @@
+.app__message {
+    z-index: 1000;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    min-width: 300px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-dark);
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+    animation: slideIn 1s ease-out forwards;
+    pointer-events: none;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.app__message.success {
+    background-color: var(--theme-primary);
+    color: var(--text-light);
+    border-left: 4px solid var(--theme-secondary);
+}
+
+.app__message.error {
+    background-color: var(--theme-accent-error, #FFD6C0);
+    color: var(--text-dark);
+    border-left: 4px solid var(--theme-primary);
+}
+
+.app__message.info {
+    background-color: var(--theme-globe);
+    color: var(--text-dark);
+    border-left: 4px solid var(--theme-secondary);
+}
+
+.app__message::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.app__message.success::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F7F6DC'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+}
+
+.app__message.error::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF6F61'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E");
+}
+
+.app__message.info::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFB347'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z'/%3E%3C/svg%3E");
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    25% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    75% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+    .app__message {
+        top: auto;
+        bottom: 2rem;
+        right: 1rem;
+        left: 1rem;
+        min-width: auto;
+        width: calc(100% - 2rem);
+    }
+}

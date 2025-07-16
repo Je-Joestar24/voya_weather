@@ -67,6 +67,8 @@ def saved_places_view(request):
         'places': places,
         'search_query': search_query,
         'has_places': bool(places),
+        'status': 'info',
+        'message': 'PROFILE PAGE'
     }
     return render(request, 'authed/savedplaces/index.html', context)
 
